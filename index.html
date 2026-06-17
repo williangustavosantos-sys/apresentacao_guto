@@ -325,8 +325,75 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
 .src-t{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--hl);margin:20px 0 10px}
 .src{display:flex;flex-wrap:wrap;gap:8px 18px}.src a{color:var(--ink-3);font-size:.74rem;text-decoration:underline;text-underline-offset:2px}.src a:hover{color:var(--hl)}
 
+/* prof comparison */
+.prof-sec{background:linear-gradient(180deg,#f4f8fc,#eaf1f8)}
+.prof-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px}
+.prof-col{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow-sm);padding:28px;transition:.35s var(--e)}
+.prof-col.guto{background:linear-gradient(160deg,rgba(82,231,255,.12),rgba(255,255,255,.6));border-color:rgba(82,231,255,.5);box-shadow:var(--shadow-cyan)}
+.prof-col:hover{transform:translateY(-4px)}
+.prof-col h3{font-size:1.2rem;margin-bottom:18px}.prof-col.guto h3{color:var(--hl)}
+.prof-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.prof-col li{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--ink-2);font-weight:500;opacity:0;transform:translateX(-8px);transition:opacity .5s var(--e),transform .5s var(--e)}
+.prof-col.in li{opacity:1;transform:none}
+.prof-col.in li:nth-child(2){transition-delay:.07s}.prof-col.in li:nth-child(3){transition-delay:.14s}.prof-col.in li:nth-child(4){transition-delay:.21s}.prof-col.in li:nth-child(5){transition-delay:.28s}
+.prof-col li .ck{width:22px;height:22px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-size:.66rem;font-weight:800;background:var(--surface-deep);color:var(--ink-3)}
+.prof-col.guto li .ck{background:var(--cta);color:var(--navy)}
+.prof-fin{margin-top:34px;text-align:center}
+.prof-fin .a{font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--ink-2);font-weight:600}
+.prof-fin .b{font-size:clamp(1.3rem,2.8vw,1.9rem);color:var(--navy);font-weight:900;letter-spacing:-.02em;margin-top:4px}
+
+/* substitution reasoning chain */
+.chain{display:grid;gap:9px;max-height:0;overflow:hidden;opacity:0;transition:max-height .55s var(--e),opacity .4s,margin-top .4s}
+.sub-card.open .chain{max-height:680px;opacity:1;margin-top:16px}
+.chain .step{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--ink-2);opacity:0;transform:translateY(8px);transition:opacity .45s var(--e),transform .45s var(--e)}
+.sub-card.open .step{opacity:1;transform:none}
+.sub-card.open .step:nth-child(1){transition-delay:.05s}.sub-card.open .step:nth-child(2){transition-delay:.22s}.sub-card.open .step:nth-child(3){transition-delay:.39s}.sub-card.open .step:nth-child(4){transition-delay:.56s}.sub-card.open .step:nth-child(5){transition-delay:.73s}.sub-card.open .step:nth-child(6){transition-delay:.9s}.sub-card.open .step:nth-child(7){transition-delay:1.07s}.sub-card.open .done{transition-delay:1.24s}
+.chain .si{width:24px;height:24px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-size:.7rem;font-weight:800;background:var(--surface-deep);color:var(--ink-3);border:1px solid var(--line)}
+.chain .step.problem .si{background:rgba(202,162,74,.18);color:#9a7a2e;border-color:#caa24a}.chain .step.problem b{color:var(--navy)}
+.chain .step.result{font-weight:700}.chain .step.result .si{background:var(--cta);color:var(--navy);border-color:transparent}.chain .step.result b{color:var(--hl)}
+.chain .step.msg{display:block;font-size:.9rem;color:var(--ink-2);background:linear-gradient(160deg,rgba(82,231,255,.12),transparent);border:1px solid rgba(82,231,255,.3);border-radius:var(--r);padding:13px 15px}
+.chain .done{opacity:0;transform:translateY(8px);transition:opacity .45s var(--e),transform .45s var(--e);align-self:start;font-size:.82rem;font-weight:800;color:var(--hl);background:var(--cyan-soft);border:1px solid rgba(82,231,255,.4);padding:8px 14px;border-radius:var(--r-pill)}
+.sub-card.open .done{opacity:1;transform:none;animation:donePulse 2.2s 1.4s var(--e) infinite}
+@keyframes donePulse{0%,100%{box-shadow:0 0 0 0 rgba(82,231,255,0)}50%{box-shadow:0 0 0 5px rgba(82,231,255,.16)}}
+.sub-card.open .sub-try{display:none}
+
+/* strategic band */
+.strat{text-align:center;padding:clamp(54px,8vw,98px) 0}
+.strat .s1{font-size:clamp(1.1rem,2.4vw,1.55rem);color:var(--ink-3);font-weight:600;max-width:36ch;margin:0 auto}
+.strat .s2{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;color:var(--navy);letter-spacing:-.035em;margin:12px auto 0}
+.strat .tags{display:inline-flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+.strat .tags span{font-size:.9rem;font-weight:700;color:var(--hl);background:var(--cyan-soft);border:1px solid rgba(82,231,255,.4);padding:9px 18px;border-radius:var(--r-pill)}
+
+/* evolution strip + day comparison */
+.evo-strip{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin-top:30px;flex-wrap:wrap}
+.evo-st{flex:1 1 0;min-width:118px;max-width:200px;text-align:center;cursor:pointer;transition:transform .35s var(--e)}
+.evo-st:hover{transform:translateY(-6px)}
+.evo-st .av{aspect-ratio:1;position:relative;display:grid;place-items:center}
+.evo-st .av .disc{position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle at 50% 42%,#fff,#eef6fd 55%,#deebf7);box-shadow:var(--shadow-sm)}
+.evo-st .av .gv-host{position:relative;width:78%;height:78%}
+.evo-st.s0 .av{transform:scale(.72)}.evo-st.s1 .av{transform:scale(.83)}.evo-st.s2 .av{transform:scale(.93)}.evo-st.s3 .av{transform:scale(1.03)}
+.evo-st .nm{font-weight:800;color:var(--navy);font-size:1rem}
+.evo-st .xp{font-size:.74rem;font-weight:700;color:var(--hl)}
+.evo-arrow{align-self:center;color:var(--steel);font-size:1.1rem;font-weight:700;padding-bottom:44px}
+.evo-day{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+.evo-dc{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow-sm);padding:18px 16px;text-align:center;transition:.35s var(--e)}
+.evo-dc:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.evo-dc.dead{border-color:rgba(157,43,43,.3);background:linear-gradient(160deg,rgba(157,43,43,.05),#fff)}
+.evo-dc .av{aspect-ratio:1;position:relative;display:grid;place-items:center;margin-bottom:6px}
+.evo-dc .av .disc{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 50% 42%,#fff,#eef6fd 55%,#deebf7);box-shadow:var(--shadow-sm)}
+.evo-dc .av .gv-host{position:relative;width:80%;height:80%}
+.evo-dc.dead .gv-host{filter:grayscale(1) brightness(.94) contrast(.92);opacity:.78}
+.evo-dc.dead .disc{opacity:.4}
+.evo-dc .dt{font-weight:800;color:var(--navy);font-size:1rem}.evo-dc.dead .dt{color:#b03636}
+.evo-dc .dcap{font-size:.82rem;color:var(--ink-2);margin-top:4px}
+.evo-death{margin-top:36px;border:1px solid rgba(157,43,43,.22);border-radius:var(--r-lg);background:linear-gradient(160deg,rgba(157,43,43,.05),transparent);padding:22px 24px;max-width:760px;margin-inline:auto}
+.evo-death .dh{display:flex;align-items:center;justify-content:space-between;gap:14px}.evo-death h4{color:#b03636;font-size:1.04rem}
+.evo-death .db{max-height:0;overflow:hidden;opacity:0;transition:.5s var(--e)}.evo-death .rv{font-size:.82rem;color:var(--steel);margin-top:10px;font-style:italic}
+
+@media(max-width:900px){.prof-cols{grid-template-columns:1fr}.evo-day{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none}
-  .gv-breathe,.gv-eyes,.gv-halo,.gv-aura,.gv-spark,.gv-ring{animation:none}html{scroll-behavior:auto}}
+  .gv-breathe,.gv-eyes,.gv-halo,.gv-aura,.gv-spark,.gv-ring,.sub-card.open .done{animation:none}
+  .prof-col li,.chain .step,.chain .done{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
 @media(max-width:900px){
   .gate-opts{grid-template-columns:1fr 1fr}
   .demo-wrap,.sub-grid,.panel-wrap,.perc-wrap,.arena-wrap{grid-template-columns:1fr}
@@ -454,23 +521,43 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     <div class="sub-grid">
       <div class="sub-card reveal" id="subEx">
         <div class="tag" data-i18n="sub.exTag"></div>
-        <div class="sub-item"><span class="nm" id="subExNm" data-i18n="sub.exFrom"></span><button class="q-btn" data-sub="ex">?</button></div>
-        <div class="sub-flow">
-          <div class="sub-q">↳ <b data-i18n="sub.exQ"></b></div>
-          <div class="sub-msg" data-i18n="sub.exMsg"></div>
+        <div class="sub-item"><span class="nm" data-i18n="sub.exFrom"></span><button class="q-btn" data-sub="ex">?</button></div>
+        <div class="chain">
+          <div class="step problem"><span class="si">!</span><b data-i18n="sub.exQ"></b></div>
+          <div class="step"><span class="si">1</span><span data-i18n="sub.exR1"></span></div>
+          <div class="step"><span class="si">2</span><span data-i18n="sub.exR2"></span></div>
+          <div class="step"><span class="si">3</span><span data-i18n="sub.exR3"></span></div>
+          <div class="step"><span class="si">4</span><span data-i18n="sub.exR4"></span></div>
+          <div class="step result"><span class="si">✓</span><b data-i18n="sub.exTo"></b></div>
+          <div class="step msg" data-i18n="sub.exMsg"></div>
+          <div class="done">✓ <span data-i18n="sub.done"></span></div>
         </div>
         <div class="sub-try" data-i18n="sub.try"></div>
       </div>
       <div class="sub-card reveal d1" id="subDiet">
         <div class="tag" data-i18n="sub.dietTag"></div>
-        <div class="sub-item"><span class="nm" id="subDietNm" data-i18n="sub.dietFrom"></span><button class="q-btn" data-sub="diet">?</button></div>
-        <div class="sub-flow">
-          <div class="sub-q">↳ <b data-i18n="sub.dietQ"></b></div>
-          <div class="sub-msg" data-i18n="sub.dietMsg"></div>
+        <div class="sub-item"><span class="nm" data-i18n="sub.dietFrom"></span><button class="q-btn" data-sub="diet">?</button></div>
+        <div class="chain">
+          <div class="step problem"><span class="si">!</span><b data-i18n="sub.dietQ"></b></div>
+          <div class="step"><span class="si">1</span><span data-i18n="sub.dietR1"></span></div>
+          <div class="step"><span class="si">2</span><span data-i18n="sub.dietR2"></span></div>
+          <div class="step result"><span class="si">✓</span><b data-i18n="sub.dietTo"></b></div>
+          <div class="step"><span class="si">3</span><span data-i18n="sub.dietR3"></span></div>
+          <div class="step msg" data-i18n="sub.dietMsg"></div>
+          <div class="done">✓ <span data-i18n="sub.done"></span></div>
         </div>
         <div class="sub-try" data-i18n="sub.try"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- STRATEGIC BAND -->
+<section class="strat" data-tier="1">
+  <div class="wrap">
+    <p class="s1 reveal" data-i18n="strat.l1"></p>
+    <p class="s2 reveal d1" data-i18n="strat.l2"></p>
+    <div class="tags reveal d2"><span data-i18n="strat.tags"></span></div>
   </div>
 </section>
 
@@ -519,26 +606,29 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     <div class="reveal"><div class="kicker" data-i18n="evo.kicker"></div>
     <h2 class="sec-title" data-i18n="evo.title"></h2>
     <p class="sec-lead" data-i18n="evo.lead"></p></div>
-    <div class="perc-wrap reveal" style="grid-template-columns:1fr 1fr;gap:48px">
-      <div class="evo-stage" id="evoStage" style="position:relative;aspect-ratio:1;max-width:420px;margin:0 auto;width:100%;display:grid;place-items:center;transition:filter .8s var(--e)">
-        <div class="disc" style="position:absolute;inset:9%;border-radius:50%;background:radial-gradient(circle at 50% 42%,#fff,#eef6fd 55%,#deebf7);box-shadow:var(--shadow)"></div>
-        <div class="gv-host on" data-gv-stage="baby" style="position:absolute;inset:9%;opacity:0;transition:opacity .6s var(--e)"></div>
-        <div class="gv-host" data-gv-stage="teen" style="position:absolute;inset:9%;opacity:0;transition:opacity .6s var(--e)"></div>
-        <div class="gv-host" data-gv-stage="adult" style="position:absolute;inset:9%;opacity:0;transition:opacity .6s var(--e)"></div>
-        <div class="gv-host" data-gv-stage="elite" style="position:absolute;inset:9%;opacity:0;transition:opacity .6s var(--e)"></div>
-      </div>
-      <div>
-        <div style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--navy)" id="evoName">Baby</div>
-        <div style="color:var(--ink-2);margin-top:8px;min-height:3em;font-size:1rem" id="evoCap"></div>
-        <div style="margin-top:24px"><div style="display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;color:var(--ink-3);margin-bottom:10px"><span data-i18n="evo.xp"></span><b style="color:var(--hl)" id="evoXp">0 XP</b></div>
-          <div style="height:6px;border-radius:6px;background:var(--surface-deep);box-shadow:var(--inset);overflow:hidden"><i id="evoFill" style="display:block;height:100%;width:0;background:var(--cta);box-shadow:var(--shadow-cyan)"></i></div></div>
-        <input type="range" min="0" max="100" value="0" id="evoRange" aria-label="evolution" style="width:100%;margin-top:22px;cursor:grab"/>
-        <div style="font-size:.72rem;font-weight:600;color:var(--steel);margin-top:8px" data-i18n="evo.scrubHint"></div>
-        <div style="margin-top:24px;border:1px solid rgba(157,43,43,.22);border-radius:var(--r-lg);background:linear-gradient(160deg,rgba(157,43,43,.05),transparent);padding:20px 22px" id="deathCard">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px"><h4 style="color:#b03636;font-size:1.02rem" data-i18n="evo.deathT"></h4><button id="deathToggle" aria-label="x" style="width:32px;height:32px;border:1px solid var(--line-2);background:#fff;color:var(--navy);font-size:1.1rem;border-radius:50%;cursor:pointer">+</button></div>
-          <div id="deathBody" style="max-height:0;overflow:hidden;opacity:0;transition:.5s var(--e)"><p style="font-size:.9rem;color:var(--ink-2);margin-top:12px" data-i18n="evo.deathB"></p><p style="font-size:.82rem;color:var(--steel);margin-top:10px;font-style:italic" data-i18n="evo.reviveNote"></p></div>
-        </div>
-      </div>
+    <div class="reveal" style="margin-top:42px"><div class="kicker" data-i18n="evo.stripK"></div></div>
+    <div class="evo-strip reveal">
+      <div class="evo-st s0"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="baby"></div></div><div class="nm" data-i18n="evo.s1"></div><div class="xp">0 XP</div></div>
+      <span class="evo-arrow">→</span>
+      <div class="evo-st s1"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="teen"></div></div><div class="nm" data-i18n="evo.s2"></div><div class="xp">1.5K XP</div></div>
+      <span class="evo-arrow">→</span>
+      <div class="evo-st s2"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="adult"></div></div><div class="nm" data-i18n="evo.s3"></div><div class="xp">5K XP</div></div>
+      <span class="evo-arrow">→</span>
+      <div class="evo-st s3"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="elite"></div></div><div class="nm" data-i18n="evo.s4"></div><div class="xp">12K XP</div></div>
+    </div>
+
+    <div style="margin-top:58px" class="reveal"><div class="kicker" data-i18n="evo.dayK"></div>
+    <p class="sec-lead" style="margin-top:4px" data-i18n="evo.dayLead"></p></div>
+    <div class="evo-day">
+      <div class="evo-dc reveal"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="baby"></div></div><div class="dt" data-i18n="evo.d1T"></div><div class="dcap" data-i18n="evo.d1C"></div></div>
+      <div class="evo-dc reveal d1"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="adult"></div></div><div class="dt" data-i18n="evo.d30T"></div><div class="dcap" data-i18n="evo.d30C"></div></div>
+      <div class="evo-dc reveal d2"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="elite"></div></div><div class="dt" data-i18n="evo.d60T"></div><div class="dcap" data-i18n="evo.d60C"></div></div>
+      <div class="evo-dc dead reveal d3"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="elite"></div></div><div class="dt" data-i18n="evo.doffT"></div><div class="dcap" data-i18n="evo.doffC"></div></div>
+    </div>
+
+    <div class="evo-death reveal" id="deathCard">
+      <div class="dh"><h4 data-i18n="evo.deathT"></h4><button id="deathToggle" aria-label="x" style="width:32px;height:32px;border:1px solid var(--line-2);background:#fff;color:var(--navy);font-size:1.1rem;border-radius:50%;cursor:pointer">+</button></div>
+      <div class="db" id="deathBody"><p style="font-size:.9rem;color:var(--ink-2);margin-top:12px" data-i18n="evo.deathB"></p><p class="rv" data-i18n="evo.reviveNote"></p></div>
     </div>
   </div>
 </section>
@@ -563,6 +653,42 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     <p class="b2b-q reveal" data-i18n="b2b.q"></p>
     <p class="b2b-a reveal d1" data-i18n="b2b.a"></p>
     <p class="b2b-lead reveal d2" data-i18n="b2b.lead"></p>
+  </div>
+</section>
+
+<!-- PROFISSIONAL -->
+<section id="prof" class="prof-sec" data-tier="2">
+  <div class="wrap">
+    <div class="reveal"><div class="kicker" data-i18n="prof.kicker"></div>
+    <h2 class="sec-title" style="max-width:26ch" data-i18n="prof.titleA"></h2>
+    <h2 class="sec-title hl" style="max-width:26ch" data-i18n="prof.titleB"></h2>
+    <p class="sec-lead" data-i18n="prof.sub"></p></div>
+    <div class="prof-cols">
+      <div class="prof-col reveal">
+        <h3 data-i18n="prof.colProf"></h3>
+        <ul>
+          <li><span class="ck">✓</span><span data-i18n="prof.p1"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.p2"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.p3"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.p4"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.p5"></span></li>
+        </ul>
+      </div>
+      <div class="prof-col guto reveal d1">
+        <h3 data-i18n="prof.colGuto"></h3>
+        <ul>
+          <li><span class="ck">✓</span><span data-i18n="prof.g1"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.g2"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.g3"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.g4"></span></li>
+          <li><span class="ck">✓</span><span data-i18n="prof.g5"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="prof-fin reveal">
+      <div class="a" data-i18n="prof.finA"></div>
+      <div class="b" data-i18n="prof.finB"></div>
+    </div>
   </div>
 </section>
 
@@ -861,12 +987,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
       var hit=HIT[kind]||[];week.querySelectorAll('.wk-cell').forEach(function(c){c.classList.toggle('hit',hit.indexOf(parseInt(c.getAttribute('data-i'),10))>-1);});},820);}
   document.querySelectorAll('.chip-btn').forEach(function(b){b.addEventListener('click',function(){runDemo(this.getAttribute('data-demo'));});});
 
-  /* "?" substitution */
-  document.querySelectorAll('.q-btn').forEach(function(b){b.addEventListener('click',function(){
-    var kind=this.getAttribute('data-sub'),card=document.getElementById(kind==='ex'?'subEx':'subDiet');
-    card.classList.add('open');
-    var nm=document.getElementById(kind==='ex'?'subExNm':'subDietNm'),item=nm.closest('.sub-item');
-    nm.textContent=dict[kind==='ex'?'sub.exTo':'sub.dietTo']||nm.textContent;item.classList.add('swapped');});});
+  /* "?" substitution — reveal the reasoning chain (system thinking) */
+  document.querySelectorAll('.q-btn').forEach(function(b){b.addEventListener('click',function(){var c=this.closest('.sub-card');if(c)c.classList.toggle('open');});});
 
   /* percurso calendar */
   (function(){var cal=document.getElementById('cal');if(!cal)return;
@@ -879,22 +1001,12 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     for(var day=1;day<=28;day++){var t=marks[day]||'';cells+='<div class="cd '+t+'">'+(t&&icons[t]?'<span class="ic">'+icons[t]+'</span>':'')+day+'</div>';}
     cal.innerHTML=head+cells;})();
 
-  /* evolution */
-  var evoStage=document.getElementById('evoStage'),evoRange=document.getElementById('evoRange'),evoFill=document.getElementById('evoFill'),evoName=document.getElementById('evoName'),evoCap=document.getElementById('evoCap'),evoXp=document.getElementById('evoXp');
-  var evoHosts=evoStage?evoStage.querySelectorAll('.gv-host'):[],XPS=[0,1500,5000,12000],curStage=-1;
-  function fmt(n){try{return n.toLocaleString(lang==='en'?'en-US':(lang==='it'?'it-IT':'pt-BR'));}catch(e){return ''+n;}}
-  function stageIdx(v){return v<22?0:(v<52?1:(v<82?2:3));}
-  function setEvo(v){if(!evoFill)return;evoFill.style.width=v+'%';var st=stageIdx(v);
-    if(st!==curStage){curStage=st;evoHosts.forEach(function(h,i){h.classList.toggle('on',i===st);});evoName.innerHTML=dict['evo.s'+(st+1)]||'';evoCap.innerHTML=dict['evo.s'+(st+1)+'c']||'';}
-    evoXp.textContent=fmt(XPS[st])+' XP';}
-  function resetEvoLabels(){if(evoRange){curStage=-1;setEvo(+evoRange.value||0);}}
-  if(evoRange){evoRange.addEventListener('input',function(){evoStage.classList.remove('dead');evoStage.style.filter='';setEvo(+this.value);});setEvo(0);
-    var played=false;if('IntersectionObserver' in window&&!reduce){var eio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!played){played=true;
-      var v=0,id=setInterval(function(){v+=2;if(v>=80){v=80;clearInterval(id);}evoRange.value=v;setEvo(v);},26);}});},{threshold:.4});eio.observe(evoStage);}else{evoRange.value=80;setEvo(80);}}
-  var deathToggle=document.getElementById('deathToggle'),deathBody=document.getElementById('deathBody');
-  if(deathToggle){deathToggle.addEventListener('click',function(){var open=deathBody.style.maxHeight&&deathBody.style.maxHeight!=='0px';
-    if(open){deathBody.style.maxHeight='0';deathBody.style.opacity='0';deathToggle.textContent='+';evoStage.style.filter='';}
-    else{deathBody.style.maxHeight='260px';deathBody.style.opacity='1';deathToggle.textContent='−';evoStage.style.filter='grayscale(1) brightness(.95)';}});}
+  /* evolution — strip & day avatars are static; only the death note toggles */
+  function resetEvoLabels(){}
+  (function(){var dt=document.getElementById('deathToggle'),db=document.getElementById('deathBody');if(!dt||!db)return;
+    dt.addEventListener('click',function(){var open=db.style.maxHeight&&db.style.maxHeight!=='0px';
+      if(open){db.style.maxHeight='0';db.style.opacity='0';dt.textContent='+';}
+      else{db.style.maxHeight='320px';db.style.opacity='1';dt.textContent='−';}});})();
 
   /* TIME GATE + HUD */
   var gate=document.getElementById('gate'),hud=document.getElementById('hud'),hudTime=document.getElementById('hudTime'),hudMsg=document.getElementById('hudMsg'),ringFg=document.getElementById('ringFg');
