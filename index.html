@@ -46,10 +46,6 @@ section{padding:clamp(60px,8.5vw,120px) 0;position:relative}
 .sec-lead{font-size:clamp(1.04rem,1.5vw,1.2rem);color:var(--ink-2);max-width:62ch;margin-top:18px}
 .center{text-align:center}.center .sec-title,.center .sec-lead{margin-left:auto;margin-right:auto}.center .kicker{justify-content:center}
 
-/* adaptive tiers */
-body[data-mode="t2"] [data-tier="2"],body[data-mode="t2"] [data-tier="3"],body[data-mode="t2"] [data-tier="4"],
-body[data-mode="t3"] [data-tier="3"],body[data-mode="t3"] [data-tier="4"],
-body[data-mode="t4"] [data-tier="4"]{display:none!important}
 
 /* time gate */
 .gate{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:30px 22px;
@@ -63,19 +59,18 @@ body[data-mode="t4"] [data-tier="4"]{display:none!important}
 .gate-open{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--hl);margin-bottom:14px}
 .gate-inner h2{font-size:clamp(1.8rem,4.6vw,2.8rem);letter-spacing:-.035em}
 .gate-inner>p{color:var(--ink-2);max-width:48ch;margin:16px auto 0;font-size:1.02rem}
-.gate-opts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.gate-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:12px;margin-top:30px}
 .gate-opts button{cursor:pointer;border:1px solid var(--line-2);background:var(--frost);border-radius:var(--r);padding:20px 12px;transition:.25s var(--e);box-shadow:var(--shadow-sm)}
 .gate-opts button:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:var(--shadow-cyan)}
 .gate-opts button b{display:block;color:var(--navy);font-size:1.02rem;font-weight:800}
-.gate-opts button[data-mode="full"]{background:var(--cta);border-color:transparent;box-shadow:var(--shadow-cyan)}
+.gate-opts button[data-focus="all"]{background:var(--cta);border-color:transparent;box-shadow:var(--shadow-cyan)}
 .gate-foot{margin-top:26px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;color:var(--steel);font-size:.82rem;font-weight:600}
 
 /* timer HUD */
 .hud{position:fixed;top:14px;right:16px;z-index:140;display:flex;align-items:center;gap:11px;padding:8px 14px 8px 10px;border-radius:var(--r-pill);background:rgba(255,255,255,.82);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:var(--shadow-sm);max-width:min(86vw,360px)}
 .hud[hidden]{display:none}
-.hud .ring{width:34px;height:34px;flex:0 0 auto;transform:rotate(-90deg)}
-.hud .ring .bg{fill:none;stroke:var(--surface-deep);stroke-width:3}
-.hud .ring .fg{fill:none;stroke:url(#hudgrad);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.hud .foc-l{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+.hud #focName{font-weight:800;color:var(--navy);font-size:.9rem}
 .hud .ht{display:flex;flex-direction:column;line-height:1.1;min-width:0}
 .hud .ht b{font-size:.94rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
 .hud .ht small{font-size:.66rem;color:var(--hl);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
@@ -390,6 +385,31 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
 .evo-death .dh{display:flex;align-items:center;justify-content:space-between;gap:14px}.evo-death h4{color:#b03636;font-size:1.04rem}
 .evo-death .db{max-height:0;overflow:hidden;opacity:0;transition:.5s var(--e)}.evo-death .rv{font-size:.82rem;color:var(--steel);margin-top:10px;font-style:italic}
 
+/* ciclo do GUTO */
+.cyc-flow{display:flex;align-items:stretch;justify-content:center;gap:6px;margin-top:46px;flex-wrap:wrap}
+.cyc-step{flex:1 1 0;min-width:148px;max-width:210px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow-sm);padding:18px 16px}
+.cyc-step .cn{width:28px;height:28px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.8rem;color:var(--navy);background:var(--cta);box-shadow:var(--shadow-cyan)}
+.cyc-step h4{font-size:.98rem;color:var(--navy);margin-bottom:5px}.cyc-step p{font-size:.82rem;color:var(--ink-2)}
+.cyc-arr{align-self:center;color:var(--steel);font-weight:700;font-size:1.1rem}
+.cyc-gpt{margin-top:34px;text-align:center;font-size:clamp(1.2rem,2.6vw,1.8rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.cyc-gpt::before{content:"";display:block;width:40px;height:2px;background:var(--cta);margin:0 auto 18px;border-radius:2px}
+/* calibragem */
+.cal-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:42px}
+.cal-chips span{font-size:.92rem;font-weight:600;color:var(--navy);background:var(--card);border:1px solid var(--line-2);padding:11px 18px;border-radius:var(--r-pill);box-shadow:var(--shadow-sm);transition:.25s var(--e)}
+.cal-chips span:hover{border-color:var(--cyan);background:var(--cyan-soft);transform:translateY(-2px)}
+.cal-note{margin-top:26px;font-size:1.02rem;color:var(--navy);font-weight:600;max-width:62ch;border-left:3px solid var(--cyan);padding-left:18px}
+/* estado atual */
+.est-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.est-col{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--shadow-sm);padding:24px}
+.est-col h4{font-size:1.06rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.est-col h4::before{content:"";width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+.est-col.have h4::before{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.est-col.pilot h4::before{background:#caa24a}
+.est-col.vision h4::before{background:transparent;border:2px solid var(--steel)}
+.est-col.have{border-color:rgba(82,231,255,.4)}
+.est-col p{font-size:.92rem;color:var(--ink-2);line-height:1.7}
+@media(max-width:760px){.est-grid{grid-template-columns:1fr}.cyc-arr{display:none}}
+
 /* APP SIMULATOR */
 .sim-sec{background:linear-gradient(180deg,#f4f8fc,#eaf1f8)}
 .sim{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:center;margin-top:44px}
@@ -404,6 +424,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
 .sim-tab{flex:1;border:0;background:transparent;cursor:pointer;padding:9px 1px 8px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--steel);font-size:.54rem;font-weight:700;transition:.2s}
 .sim-tab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sim-tab.on{color:var(--hl)}
+.cbub{max-width:90%;padding:10px 13px;border-radius:14px;font-size:.74rem;line-height:1.45;animation:rise .4s var(--e)}
+.cbub.guto{align-self:flex-start;background:linear-gradient(160deg,rgba(82,231,255,.18),rgba(82,231,255,.06));border:1px solid rgba(82,231,255,.35);color:var(--navy);border-bottom-left-radius:4px}
+.cbub.you{align-self:flex-end;background:var(--surface-deep);color:var(--navy);border-bottom-right-radius:4px}
+.evo-st.so .av{transform:scale(.6)}
 .scr-h{font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
 .scr-title{font-weight:800;color:var(--navy);font-size:1rem;letter-spacing:-.01em;margin-bottom:2px}
 .mrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
@@ -497,13 +521,14 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
   <div class="gate-inner">
     <div class="gate-orb"><div class="disc"></div><div class="gv-host" data-gv-stage="adult"></div></div>
     <div class="gate-open" data-i18n="gate.opening"></div>
-    <h2 data-i18n="gate.q"></h2>
-    <p data-i18n="gate.lead"></p>
+    <h2 data-i18n="foc.q"></h2>
+    <p data-i18n="foc.lead"></p>
     <div class="gate-opts">
-      <button data-mode="t2"><b data-i18n="gate.t2"></b></button>
-      <button data-mode="t3"><b data-i18n="gate.t3"></b></button>
-      <button data-mode="t4"><b data-i18n="gate.t4"></b></button>
-      <button data-mode="full"><b data-i18n="gate.full"></b></button>
+      <button data-focus="prod"><b data-i18n="foc.prod"></b></button>
+      <button data-focus="ret"><b data-i18n="foc.ret"></b></button>
+      <button data-focus="b2b"><b data-i18n="foc.b2b"></b></button>
+      <button data-focus="neg"><b data-i18n="foc.neg"></b></button>
+      <button data-focus="all"><b data-i18n="foc.all"></b></button>
     </div>
     <div class="gate-foot">
       <div class="langsw" id="gateLang">
@@ -511,17 +536,15 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
         <button data-lang="en" title="English"><img src="assets/idioma-english.svg" alt="EN"/></button>
         <button data-lang="it" title="Italiano"><img src="assets/idioma-italiano.svg" alt="IT"/></button>
       </div>
-      <span data-i18n="gate.hint"></span>
+      <span data-i18n="foc.hint"></span>
     </div>
   </div>
 </div>
 
-<!-- TIMER HUD -->
+<!-- FOCUS CHIP -->
 <div class="hud" id="hud" hidden>
-  <svg class="ring" viewBox="0 0 36 36"><defs><linearGradient id="hudgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7df0ff"/><stop offset="1" stop-color="#1ec1de"/></linearGradient></defs>
-    <circle class="bg" cx="18" cy="18" r="16"/><circle class="fg" id="ringFg" cx="18" cy="18" r="16"/></svg>
-  <div class="ht"><b id="hudTime">—</b><small id="hudMsg"></small></div>
-  <button class="hr" id="hudRestart" aria-label="restart">↻</button>
+  <span class="foc-l" data-i18n="foc.switch"></span><b id="focName"></b>
+  <button class="hr" id="focSwitch" aria-label="trocar foco">↻</button>
 </div>
 
 <header id="hdr">
@@ -566,6 +589,41 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     <p class="thesis-l soft reveal d2" data-i18n="thesis.l4"></p>
     <p class="thesis-l big reveal d2" data-i18n="thesis.l5"></p>
     <p class="thesis-l hl reveal d3" data-i18n="thesis.l6"></p>
+  </div>
+</section>
+
+<!-- O CICLO DO GUTO -->
+<section id="cyc" class="thesis-sec">
+  <div class="wrap">
+    <div class="reveal"><div class="kicker" data-i18n="cyc.kicker"></div>
+    <h2 class="sec-title" data-i18n="cyc.title"></h2>
+    <p class="sec-lead" data-i18n="cyc.lead"></p></div>
+    <div class="cyc-flow">
+      <div class="cyc-step reveal"><span class="cn">1</span><div><h4 data-i18n="cyc.s1"></h4><p data-i18n="cyc.s1c"></p></div></div>
+      <span class="cyc-arr">→</span>
+      <div class="cyc-step reveal d1"><span class="cn">2</span><div><h4 data-i18n="cyc.s2"></h4><p data-i18n="cyc.s2c"></p></div></div>
+      <span class="cyc-arr">→</span>
+      <div class="cyc-step reveal d2"><span class="cn">3</span><div><h4 data-i18n="cyc.s3"></h4><p data-i18n="cyc.s3c"></p></div></div>
+      <span class="cyc-arr">→</span>
+      <div class="cyc-step reveal d3"><span class="cn">4</span><div><h4 data-i18n="cyc.s4"></h4><p data-i18n="cyc.s4c"></p></div></div>
+      <span class="cyc-arr">→</span>
+      <div class="cyc-step reveal d4"><span class="cn">5</span><div><h4 data-i18n="cyc.s5"></h4><p data-i18n="cyc.s5c"></p></div></div>
+    </div>
+    <p class="cyc-gpt reveal" data-i18n="cyc.gpt"></p>
+  </div>
+</section>
+
+<!-- CALIBRAGEM -->
+<section id="cal">
+  <div class="wrap">
+    <div class="reveal"><div class="kicker" data-i18n="cal.kicker"></div>
+    <h2 class="sec-title" data-i18n="cal.title"></h2>
+    <p class="sec-lead" data-i18n="cal.lead"></p></div>
+    <div class="cal-chips reveal">
+      <span data-i18n="cal.c1"></span><span data-i18n="cal.c2"></span><span data-i18n="cal.c3"></span><span data-i18n="cal.c4"></span>
+      <span data-i18n="cal.c5"></span><span data-i18n="cal.c6"></span><span data-i18n="cal.c7"></span><span data-i18n="cal.c8"></span>
+    </div>
+    <p class="cal-note reveal" data-i18n="cal.note"></p>
   </div>
 </section>
 
@@ -654,6 +712,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
         <div class="sim-top"><div class="sa"><div class="gv-host" data-gv-stage="adult"></div></div><div><div class="st" data-i18n="sim.you"></div><div class="ss" data-i18n="online.kicker"></div></div></div>
         <div class="sim-body" id="simScreen"></div>
         <div class="sim-tabs" id="simTabs">
+          <button class="sim-tab" data-tab="chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg><span data-i18n="sim.chat"></span></button>
           <button class="sim-tab" data-tab="mission"><svg viewBox="0 0 24 24"><path d="M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/></svg><span data-i18n="sim.mission"></span></button>
           <button class="sim-tab" data-tab="diet"><svg viewBox="0 0 24 24"><path d="M6 3v6a2 2 0 0 0 4 0V3M8 9v12M17 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4 2.5-1 2.5-4-1-5-2.5-5zM17 12v9"/></svg><span data-i18n="sim.diet"></span></button>
           <button class="sim-tab" data-tab="arena"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0zM6 6H3v1a3 3 0 0 0 3 3M18 6h3v1a3 3 0 0 1-3 3"/></svg><span data-i18n="sim.arena"></span></button>
@@ -697,6 +756,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
     <p class="sec-lead" data-i18n="evo.lead"></p></div>
     <div class="reveal" style="margin-top:42px"><div class="kicker" data-i18n="evo.stripK"></div></div>
     <div class="evo-strip reveal">
+      <div class="evo-st so"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="ovo"></div></div><div class="nm" data-i18n="evo.s0"></div><div class="xp">·</div></div>
+      <span class="evo-arrow">→</span>
       <div class="evo-st s0"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="baby"></div></div><div class="nm" data-i18n="evo.s1"></div><div class="xp">0 XP</div></div>
       <span class="evo-arrow">→</span>
       <div class="evo-st s1"><div class="av"><div class="disc"></div><div class="gv-host" data-gv-stage="teen"></div></div><div class="nm" data-i18n="evo.s2"></div><div class="xp">1.5K XP</div></div>
@@ -865,6 +926,20 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
   </div>
 </section>
 
+<!-- ESTADO ATUAL & REALIDADE -->
+<section id="estado" class="flow-sec">
+  <div class="wrap">
+    <div class="reveal"><div class="kicker" data-i18n="est.kicker"></div>
+    <h2 class="sec-title" data-i18n="est.title"></h2>
+    <p class="sec-lead" data-i18n="est.lead"></p></div>
+    <div class="est-grid">
+      <div class="est-col have reveal"><h4 data-i18n="est.haveT"></h4><p data-i18n="est.have"></p></div>
+      <div class="est-col pilot reveal d1"><h4 data-i18n="est.pilotT"></h4><p data-i18n="est.pilot"></p></div>
+      <div class="est-col vision reveal d2"><h4 data-i18n="est.visionT"></h4><p data-i18n="est.vision"></p></div>
+    </div>
+  </div>
+</section>
+
 <!-- EXECUTION -->
 <section id="execution" data-tier="4">
   <div class="wrap">
@@ -960,6 +1035,14 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
   var gvSeq=0;
   function gvAvatar(stage,speaking){
     var EYE="#52e7ff",ED="#1ec1de",EG="#7df0ff",BL="#ff9fb6";
+    if(stage==='ovo'){var eu="gv"+(++gvSeq);return '<svg viewBox="-18 -14 196 218" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="display:block;overflow:visible">'
+      +'<defs><radialGradient id="'+eu+'-e" cx="38%" cy="30%" r="72%"><stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#eaf9ff"/><stop offset="100%" stop-color="#cfe9f7"/></radialGradient>'
+      +'<filter id="'+eu+'-g" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'
+      +'<g class="gv-breathe"><ellipse cx="80" cy="176" rx="40" ry="7" fill="rgba(20,90,130,0.10)"/>'
+      +'<ellipse cx="80" cy="96" rx="56" ry="74" fill="url(#'+eu+'-e)"/><ellipse cx="80" cy="96" rx="56" ry="74" fill="none" stroke="#bfe9fb" stroke-width="1.5" opacity="0.6"/>'
+      +'<ellipse cx="60" cy="58" rx="18" ry="11" fill="#ffffff" opacity="0.5" transform="rotate(-20 60 58)"/>'
+      +'<circle class="gv-halo" cx="80" cy="106" r="15" fill="'+EYE+'" filter="url(#'+eu+'-g)"/>'
+      +'<circle cx="80" cy="106" r="9" fill="'+EG+'"/><circle cx="80" cy="106" r="9" fill="none" stroke="'+EYE+'" stroke-width="1"/></g></svg>';}
     var META={baby:{view:[160,160],eyes:[57,103,72,16],core:[80,112,13],body:["#ffffff","#eaf9ff","#d2f1ff"]},
       teen:{view:[170,200],eyes:[63,107,100,18],core:[85,134,13],body:["#ffffff","#eaf9ff","#cfeeff"]},
       adult:{view:[220,210],eyes:[82,138,104,20],core:[110,150,17],body:["#ffffff","#e6f6ff","#c4ebfb"]},
@@ -1090,42 +1173,44 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
       if(open){db.style.maxHeight='0';db.style.opacity='0';dt.textContent='+';}
       else{db.style.maxHeight='320px';db.style.opacity='1';dt.textContent='−';}});})();
 
-  /* TIME GATE + HUD */
-  var gate=document.getElementById('gate'),hud=document.getElementById('hud'),hudTime=document.getElementById('hudTime'),hudMsg=document.getElementById('hudMsg'),ringFg=document.getElementById('ringFg');
-  var TIMES={t2:120,t3:180,t4:240,full:0},timerId=null,total=0,left=0,RLEN=2*Math.PI*16;
-  if(ringFg){ringFg.style.strokeDasharray=RLEN;ringFg.style.strokeDashoffset=0;}
-  function setRing(frac){if(ringFg)ringFg.style.strokeDashoffset=RLEN*(1-Math.max(0,Math.min(1,frac)));}
-  function updateHud(textOnly){if(!hud||hud.hidden)return;
-    if(total<=0){hudTime.textContent='∞';setRing(1);hudMsg.textContent='';return;}
-    var mm=Math.floor(left/60),ss=left%60;hudTime.textContent=mm+':'+(ss<10?'0':'')+ss;setRing(left/total);
-    var fast=left<=total*0.25&&left>0;hud.classList.toggle('fast',fast);
-    hudMsg.textContent=left<=0?(dict['hud.done']||''):(fast?(dict['hud.fast']||''):'');
-    if(textOnly)return;}
-  function startTimer(secs){if(timerId)clearInterval(timerId);total=secs;left=secs;hud.hidden=false;updateHud();
-    if(!secs){return;}timerId=setInterval(function(){left--;if(left<=0){left=0;clearInterval(timerId);}updateHud();},1000);}
-  function startMode(mode){document.body.setAttribute('data-mode',mode);document.body.classList.add('started');
-    gate.classList.add('hide');setTimeout(function(){gate.style.display='none';},620);
-    startTimer(TIMES[mode]||0);window.scrollTo(0,0);}
-  document.querySelectorAll('.gate-opts button').forEach(function(b){b.addEventListener('click',function(){startMode(this.getAttribute('data-mode'));});});
-  document.getElementById('hudRestart').addEventListener('click',function(){if(timerId)clearInterval(timerId);hud.hidden=true;
-    document.body.classList.remove('started');document.body.removeAttribute('data-mode');gate.style.display='';gate.classList.remove('hide');window.scrollTo(0,0);});
+  /* FOCUS GATE — navega por interesse, não por cronômetro */
+  var gate=document.getElementById('gate'),hud=document.getElementById('hud'),focName=document.getElementById('focName'),curFocus='all';
+  var FOCUS={cat:'prod ret b2b neg',thesis:'prod ret b2b neg',cyc:'prod ret',problem:'ret',cal:'prod',flow:'prod ret',sub:'prod',demo:'prod ret',evolution:'ret',prof:'b2b',panel:'b2b',model:'b2b neg',market:'neg',why:'neg ret',moat:'neg b2b',estado:'neg prod',execution:'neg',invest:'neg',ask:'prod ret b2b neg'};
+  document.querySelectorAll('main section').forEach(function(s){s.setAttribute('data-focus',FOCUS[s.id]||'prod ret b2b neg');});
+  function filterFocus(f){document.querySelectorAll('main section[data-focus]').forEach(function(s){var df=s.getAttribute('data-focus')||'';s.style.display=(f==='all'||df.split(' ').indexOf(f)>-1)?'':'none';});}
+  function updateHud(){if(focName)focName.textContent=dict['foc.'+curFocus]||'';}
+  function startMode(f){curFocus=f;document.body.classList.add('started');filterFocus(f);updateHud();
+    if(hud)hud.hidden=false;gate.classList.add('hide');setTimeout(function(){gate.style.display='none';},620);window.scrollTo(0,0);}
+  document.querySelectorAll('.gate-opts button').forEach(function(b){b.addEventListener('click',function(){startMode(this.getAttribute('data-focus'));});});
+  var focSwitch=document.getElementById('focSwitch');
+  if(focSwitch)focSwitch.addEventListener('click',function(){gate.style.display='';gate.classList.remove('hide');window.scrollTo(0,0);});
 
   /* ===== APP SIMULATOR ===== */
   var simScreen=document.getElementById('simScreen'),simExplain=document.getElementById('simExplain'),simRoot=document.getElementById('sim');
   function d(k){return dict[k]||'';}
-  var S={tab:'mission',arena:'week',xp:4180,validated:false,mq:false,dq:false};
-  function simStage(xp){return xp<=0?'dead':xp<1500?'baby':xp<5000?'teen':xp<12000?'adult':'elite';}
-  function stName(stg){return d(stg==='baby'?'evo.s1':stg==='teen'?'evo.s2':stg==='adult'?'evo.s3':'evo.s4');}
+  var S={tab:'chat',arena:'week',xp:4180,validated:false,mq:false,dq:false};
+  function simStage(xp){return xp<=0?'ovo':xp<1500?'baby':xp<5000?'teen':xp<12000?'adult':'elite';}
+  function stName(stg){return d(stg==='ovo'?'evo.s0':stg==='baby'?'evo.s1':stg==='teen'?'evo.s2':stg==='adult'?'evo.s3':'evo.s4');}
   var SCREENS={
+    chat:function(){return '<div class="scr-h">'+d('online.kicker')+'</div>'
+      +'<div class="cbub guto">'+d('sim.chatQ')+'</div>'
+      +'<div class="cbub you">'+d('demo.chipTravel')+'</div>'
+      +'<div class="cbub guto">'+d('demo.replyTravel')+'</div>';},
     mission:function(){return '<div class="scr-h">'+d('sim.missionDay')+'</div><div class="scr-title">'+d('sim.missionTitle')+'</div>'
+      +'<div class="mrow"><div><div class="mn">'+d('sim.warm')+'</div><div class="ms">6 min</div></div></div>'
       +'<div class="mrow"><div><div class="mn">1 · '+d('sim.ex1')+'</div><div class="ms">4×8-10 · 90s</div></div><button class="mq" data-act="mq">?</button></div>'
       +(S.mq?'<div class="mhint">↳ '+d('sim.missionAct')+' → <b>'+d('sub.exTo')+'</b><br>'+d('sim.missionDec')+'</div>':'')
       +'<div class="mrow"><div><div class="mn">2 · '+d('sim.ex2')+'</div><div class="ms">3×12 · 60s</div></div></div>'
+      +'<div class="mrow"><div><div class="mn">3 · '+d('sim.ex3')+'</div><div class="ms">3×12 · 60s</div></div></div>'
+      +'<div class="mrow"><div><div class="mn">4 · '+d('sim.ex4')+'</div><div class="ms">3×15 · 45s</div></div></div>'
       +(S.validated?'<button class="mbtn done">'+d('sim.validated')+'</button>':'<button class="mbtn" data-act="validate">'+d('sim.validate')+'</button>');},
     diet:function(){return '<div class="scr-h">'+d('sim.dietTitle')+'</div><div class="kcal">2.600 <span>kcal · Hipertrofia</span></div>'
       +'<div class="macros"><span>160g<br>P</span><span>300g<br>C</span><span>75g<br>G</span></div>'
       +'<div class="mrow"><div><div class="mn">07:00 · '+d('sim.meal')+'</div><div class="ms">'+(S.dq?d('sub.dietTo'):d('sim.dietItem'))+'</div></div><button class="mq" data-act="dq">?</button></div>'
-      +(S.dq?'<div class="mhint">↳ '+d('sim.dietAct')+' → <b>'+d('sub.dietTo')+'</b><br>'+d('sim.dietDec')+'</div>':'');},
+      +(S.dq?'<div class="mhint">↳ '+d('sim.dietAct')+' → <b>'+d('sub.dietTo')+'</b><br>'+d('sim.dietDec')+'</div>':'')
+      +'<div class="mrow"><div><div class="mn">12:30 · '+d('sim.meal2')+'</div><div class="ms">'+d('sim.meal2i')+'</div></div></div>'
+      +'<div class="mrow"><div><div class="mn">16:00 · '+d('sim.meal3')+'</div><div class="ms">'+d('sim.meal3i')+'</div></div></div>'
+      +'<div class="mrow"><div><div class="mn">20:00 · '+d('sim.meal4')+'</div><div class="ms">'+d('sim.meal4i')+'</div></div></div>';},
     arena:function(){var W=[['Ana',1420],['Lucas',1390],['Carla',1360],['João',1320]],M=[['Carla',5820],['Ana',5410],['Lucas',5190],['João',4980]];
       var h='<div class="ar-tabs"><button class="ar-tab '+(S.arena==='week'?'on':'')+'" data-act="ar" data-v="week">'+d('sim.arenaWeek')+'</button>'
         +'<button class="ar-tab '+(S.arena==='month'?'on':'')+'" data-act="ar" data-v="month">'+d('sim.arenaMonth')+'</button>'
@@ -1135,10 +1220,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
         +'<div style="font-size:.58rem;color:var(--ink-3);margin-top:10px;text-align:left">'+d('sim.next')+': Elite · 12K</div><div class="ev-bar"><i style="width:34%"></i></div></div>';}
       else{var L=S.arena==='week'?W:M;for(var i=0;i<L.length;i++){var me=L[i][0]==='Ana';h+='<div class="ar-row'+(i===0?' top':'')+(me?' me':'')+'"><span class="rp">'+(i+1)+'</span><span class="rn">GUTO &amp; '+L[i][0]+'</span><span class="rx">'+L[i][1].toLocaleString('pt-BR')+' XP</span></div>';}}
       return h;},
-    evolve:function(){var stg=simStage(S.xp),dead=S.xp<=0,crit=S.xp>0&&S.xp<600,av=dead?'baby':stg;
-      return '<div class="ev-av '+(dead?'dead':crit?'crit':'')+'"><div class="disc"></div><div class="gv-host" data-gv-stage="'+av+'"></div></div>'
-      +'<div class="ev-nm">'+(dead?d('sim.stDead'):stName(stg))+'</div>'
-      +'<div class="ev-stt '+(dead?'dead':crit?'crit':'')+'">'+(dead?d('sim.stDead'):crit?d('sim.stCrit'):d('sim.stAlive'))+'</div>'
+    evolve:function(){var stg=simStage(S.xp);
+      return '<div class="ev-av"><div class="disc"></div><div class="gv-host" data-gv-stage="'+stg+'"></div></div>'
+      +'<div class="ev-nm">'+stName(stg)+'</div>'
+      +'<div class="ev-stt">'+(S.xp<=0?d('evo.s0c'):d('sim.stAlive'))+'</div>'
       +'<div class="ev-bar"><i style="width:'+Math.min(100,S.xp/12000*100)+'%"></i></div>'
       +'<div class="ev-xp"><span>0</span><span>'+Math.round(S.xp).toLocaleString('pt-BR')+' XP</span><span>12K</span></div>'
       +'<input type="range" class="ev-range" min="0" max="12000" step="100" value="'+S.xp+'" data-act="xprange" aria-label="XP"/>'
@@ -1151,7 +1236,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
   function ex(a,dec,r){return '<div class="ex-row"><div class="exl">'+d('sim.aLabel')+'</div><div class="exv">'+a+'</div></div>'
     +'<div class="ex-row dec"><div class="exl">'+d('sim.dLabel')+'</div><div class="exv">'+dec+'</div></div>'
     +'<div class="ex-row res"><div class="exl">'+d('sim.rLabel')+'</div><div class="exv">'+r+'</div></div>';}
-  var EXPLAIN={mission:function(){return ex(d('sim.missionAct'),d('sim.missionDec'),d('sim.missionRes'));},
+  var EXPLAIN={chat:function(){return ex(d('demo.chipTravel'),d('sim.chatDec'),d('sim.chatRes'));},
+    mission:function(){return ex(d('sim.missionAct'),d('sim.missionDec'),d('sim.missionRes'));},
     diet:function(){return ex(d('sim.dietAct'),d('sim.dietDec'),d('sim.dietRes'));},
     arena:function(){return ex(d('sim.arenaAct'),d('sim.arenaDec'),d('sim.arenaRes'));},
     evolve:function(){return ex(d('sim.evolveAct'),d('sim.evolveDec'),d('sim.evolveRes'));},
@@ -1165,12 +1251,11 @@ footer{border-top:1px solid var(--line);padding:42px 0 56px;color:var(--ink-3);f
       if(act==='mq')S.mq=true;else if(act==='dq')S.dq=true;else if(act==='validate'){S.validated=true;S.xp+=100;}
       else if(act==='ar')S.arena=a.getAttribute('data-v');else return;renderSim();});
     simRoot.addEventListener('input',function(e){var t=e.target;if(!t||!t.getAttribute||t.getAttribute('data-act')!=='xprange')return;
-      S.xp=+t.value;var stg=simStage(S.xp),dead=S.xp<=0,crit=S.xp>0&&S.xp<600,av=dead?'baby':stg;
+      S.xp=+t.value;var stg=simStage(S.xp);
       var wrap=simScreen.querySelector('.ev-av');if(!wrap)return;var host=wrap.querySelector('.gv-host');
-      if(host.getAttribute('data-gv-stage')!==av){host.setAttribute('data-gv-stage',av);host.removeAttribute('data-gv-done');host.innerHTML='';injectAvatars(wrap);}
-      wrap.className='ev-av '+(dead?'dead':crit?'crit':'');
-      simScreen.querySelector('.ev-nm').textContent=dead?d('sim.stDead'):stName(stg);
-      var st=simScreen.querySelector('.ev-stt');st.textContent=dead?d('sim.stDead'):crit?d('sim.stCrit'):d('sim.stAlive');st.className='ev-stt '+(dead?'dead':crit?'crit':'');
+      if(host.getAttribute('data-gv-stage')!==stg){host.setAttribute('data-gv-stage',stg);host.removeAttribute('data-gv-done');host.innerHTML='';injectAvatars(wrap);}
+      simScreen.querySelector('.ev-nm').textContent=stName(stg);
+      simScreen.querySelector('.ev-stt').textContent=S.xp<=0?d('evo.s0c'):d('sim.stAlive');
       simScreen.querySelector('.ev-bar i').style.width=Math.min(100,S.xp/12000*100)+'%';
       simScreen.querySelector('.ev-xp').innerHTML='<span>0</span><span>'+Math.round(S.xp).toLocaleString('pt-BR')+' XP</span><span>12K</span>';});
   }
