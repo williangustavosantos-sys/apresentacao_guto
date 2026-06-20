@@ -4,6 +4,7 @@
 
    INTEGRIDADE: nenhum número do GUTO (receita, captação, métricas) foi inventado.
    Os números de mercado vêm de fontes públicas (2024–2026), citadas no rodapé.
+   A calculadora é simulação: custo por usuário é estimativa ajustável; preços em definição.
    Todo o conteúdo deriva da documentação canônica do projeto (README + *_DETALHADA). */
 
 const I18N = {
@@ -16,7 +17,11 @@ const I18N = {
     "nav.invest": "Investir",
     "nav.skip": "Pular abertura",
 
-    /* 1 · EXPERIÊNCIA — abertura cinematográfica */
+    /* 0 · GATE de idioma */
+    "gate.title": "Escolha o idioma desta experiência",
+    "gate.sub": "Choose your language · Scegli la lingua",
+
+    /* 1 · EXPERIÊNCIA */
     "open.l1": "Você tem 45 minutos hoje.",
     "open.l2": "Eu adaptei o seu treino.",
     "open.l3": "Porque ontem você me contou que ia viajar.",
@@ -52,16 +57,18 @@ const I18N = {
     "bond.c4": "Usar depois",
     "bond.note": "Ele não espera você perguntar. Ele percebe a vida acontecendo — entende, confirma, guarda e usa dias depois. Sozinho.",
 
-    /* 4 · EVOLUÇÃO */
+    /* 4 · EVOLUÇÃO (4 estágios: baby/teen/adult/elite) */
     "evo.kicker": "Evolução",
     "evo.title": "Ele não sobe de nível. Ele cresce com você.",
     "evo.lead": "Cada presença validada vira vida. A evolução não é um placar — é a prova visível da sua constância.",
-    "evo.d1": "Dia 1",
-    "evo.d1c": "Frágil. Ainda é só uma promessa.",
-    "evo.d30": "Dia 30",
-    "evo.d30c": "Mais forte. A constância começou a virar vínculo.",
-    "evo.d60": "Dia 60",
-    "evo.d60c": "A prova viva de que você apareceu — todos os dias.",
+    "evo.t1": "Dia 1",
+    "evo.c1": "Frágil. Ainda é só uma promessa.",
+    "evo.t2": "Dia 30",
+    "evo.c2": "Mais firme. A primeira barreira de constância foi vencida.",
+    "evo.t3": "Dia 60",
+    "evo.c3": "Forte. Sustentando um histórico real de presença.",
+    "evo.t4": "Dia 90",
+    "evo.c4": "O ápice. Um estilo de vida de alta retenção.",
     "evo.xp": "A energia é ganha só por presença real. Nunca por esforço, nunca editada à mão.",
     "evo.scrub": "Arraste o tempo",
 
@@ -89,11 +96,29 @@ const I18N = {
     "ret.fix": "Comigo, a ausência tem consequência: o XP para, o avatar enfraquece, a Arena mostra e o Percurso registra.",
     "ret.insight": "O GUTO transforma churn invisível em perda emocional real. A retenção é o produto — não a métrica de saída.",
 
-    /* 7 · B2B */
+    /* 7a · PROFISSIONAL + GUTO */
+    "prof.kicker": "Profissional + GUTO",
+    "prof.title": "O GUTO não substitui o profissional. Ele multiplica o profissional.",
+    "prof.lead": "Personal, nutricionista e coach continuam donos da estratégia. O GUTO garante a execução diária — entre um atendimento e o outro, para cada aluno.",
+    "prof.colProf": "O profissional",
+    "prof.colGuto": "O GUTO",
+    "prof.p1": "Cria a estratégia",
+    "prof.p2": "Prescreve treino e dieta",
+    "prof.p3": "Faz os ajustes especializados",
+    "prof.p4": "Atende em momentos pontuais",
+    "prof.p5": "Cuida do humano",
+    "prof.g1": "Garante a presença diária",
+    "prof.g2": "Adapta os imprevistos da semana",
+    "prof.g3": "Mantém o plano vivo",
+    "prof.g4": "Atua todos os dias",
+    "prof.g5": "Monitora o abandono e avisa",
+    "prof.phrase": "O profissional é o cérebro técnico. O GUTO é a presença operacional.",
+
+    /* 7b · B2B */
     "b2b.kicker": "B2B",
-    "b2b.q": "“Com treino, dieta e acompanhamento… o GUTO vai substituir o personal e o nutricionista?”",
-    "b2b.a": "Não. Eu fui criado para multiplicá-los.",
-    "b2b.lead": "O profissional continua sendo o cérebro técnico. Eu me torno a presença diária — entre um atendimento e outro, para cada aluno.",
+    "b2b.q": "“Como o GUTO chega a cada aluno, todo dia, sem um humano por aluno?”",
+    "b2b.a": "Vendendo presença por academia.",
+    "b2b.lead": "Um único contrato traz dezenas de alunos. O painel é o motor de distribuição — e o GUTO entrega o acompanhamento 1-a-1 que a academia nunca conseguiu dar.",
     "b2b.wedge": "Membros com acompanhamento renovam mais. Mas o personal humano não escala. Eu sou a presença individual que escala — vendida por academia, entregue a cada aluno.",
     "b2b.chain": "Empresa → Coach → Aluno",
     "b2b.chainNote": "Toda academia é um time. Todo coach cuida dos seus. Nenhum aluno fica sem presença.",
@@ -103,7 +128,8 @@ const I18N = {
     "b2b.f2d": "O coach trava treino e dieta — o GUTO não sobrescreve o que o profissional decidiu.",
     "b2b.f3": "Risco de abandono",
     "b2b.f3d": "Quem está sumindo aparece em destaque, antes de cancelar.",
-    "b2b.panelCap": "Painel real · Sala de Controle",
+    "b2b.panelCap": "Painel real · Sala de Controle (admin)",
+    "b2b.panelCap2": "Painel real · Portal do Coach",
     "b2b.phrase": "O personal prescreve. O GUTO acompanha. A academia retém.",
 
     /* 8 · MERCADO */
@@ -117,6 +143,26 @@ const I18N = {
     "mkt.m3v": "92 min/dia",
     "mkt.m3l": "Engajamento diário do Character.AI — presença com personalidade gera tempo que app fitness nenhum alcança.",
     "mkt.note": "Números de mercado de fontes públicas citadas no rodapé. Nenhum número do GUTO foi inventado.",
+
+    /* 8b · CONCORRÊNCIA */
+    "comp.kicker": "Concorrência",
+    "comp.title": "Cada concorrente resolve metade do problema.",
+    "comp.lead": "Ou entregam execução sem presença, ou presença sem execução. O GUTO une os dois — e ainda se vende por academia.",
+    "comp.colCat": "Categoria",
+    "comp.colReal": "Números reais",
+    "comp.colGap": "O que falta",
+    "comp.c1n": "Personal humano por app",
+    "comp.c1r": "Future — US$ 199/mês por aluno",
+    "comp.c1g": "Não escala: depende de um treinador humano por aluno.",
+    "comp.c2n": "Coach de IA fitness",
+    "comp.c2r": "≈ 41 mi usuários · ~US$ 34 mi receita · US$ 70 mi captados",
+    "comp.c2g": "Entrega plano, não presença viva nem vínculo.",
+    "comp.c3n": "Companheiro de IA",
+    "comp.c3r": "Replika ≈ 30 mi · Character.AI ≈ 22 mi MAU",
+    "comp.c3g": "Vínculo sem execução: não monta treino nem conduz a sessão.",
+    "comp.c4n": "GUTO",
+    "comp.c4r": "Presença + execução + canal B2B",
+    "comp.c4g": "Une os três mundos — e se vende para academias.",
 
     /* 9 · DEFENSIBILIDADE */
     "moat.kicker": "Defensibilidade",
@@ -145,7 +191,21 @@ const I18N = {
     "road.vision": "O sistema operacional da presença — começa no fitness e serve qualquer jornada de hábito e consistência.",
     "road.honest": "A morte permanente já está especificada como decisão de produto e é parte do que estamos fechando — não vendemos como pronto o que ainda vamos entregar.",
 
-    /* 11 · CAPTAÇÃO + fechamento */
+    /* 11a · CALCULADORA (unit economics) */
+    "calc.kicker": "A conta",
+    "calc.title": "A conta fecha — e escala.",
+    "calc.lead": "Mexa nas barras. A receita nasce da empresa; o custo por usuário é baixo e a margem cresce com a escala.",
+    "calc.priceL": "Preço por usuário / mês",
+    "calc.usersL": "Usuários ativos",
+    "calc.costL": "Custo estimado por usuário / mês (IA + infra)",
+    "calc.mrr": "Receita mensal (MRR)",
+    "calc.cost": "Custo mensal estimado",
+    "calc.profit": "Lucro mensal estimado",
+    "calc.margin": "Margem",
+    "calc.year": "≈ por ano",
+    "calc.note": "Simulação. O custo por usuário é uma estimativa ajustável (IA + infraestrutura); os preços do GUTO estão em definição. Nenhum valor é apresentado como receita real.",
+
+    /* 11b · CAPTAÇÃO + fechamento */
     "ask.kicker": "Captação",
     "ask.title": "Estamos captando para tirar o GUTO do pré-piloto para o mercado.",
     "ask.lead": "O produto está de pé. O capital acelera pilotos, distribuição e as primeiras contratações — não a construção do que já existe.",
@@ -168,7 +228,7 @@ const I18N = {
     "close.l4": "Eu sou o GUTO.",
     "close.whats": "Falar no WhatsApp",
     "close.sourcesT": "Fontes",
-    "close.disclaimer": "Números de mercado e de concorrentes vêm de fontes públicas (2024–2026), citadas abaixo. Nenhuma projeção financeira, preço ou métrica do GUTO foi inventada nesta apresentação.",
+    "close.disclaimer": "Números de mercado e de concorrentes vêm de fontes públicas (2024–2026), citadas abaixo. A calculadora é uma simulação com custo por usuário estimado e ajustável. Nenhuma projeção, preço ou métrica do GUTO foi apresentada como receita real.",
     "footer.tag": "Companheiro ativo digital · PT · EN · IT"
   },
 
@@ -180,6 +240,9 @@ const I18N = {
     "nav.langLabel": "Language",
     "nav.invest": "Invest",
     "nav.skip": "Skip intro",
+
+    "gate.title": "Choose the language of this experience",
+    "gate.sub": "Escolha o idioma · Scegli la lingua",
 
     "open.l1": "You have 45 minutes today.",
     "open.l2": "I adapted your training.",
@@ -217,12 +280,14 @@ const I18N = {
     "evo.kicker": "Evolution",
     "evo.title": "He doesn't level up. He grows with you.",
     "evo.lead": "Every validated presence becomes life. Evolution isn't a scoreboard — it's the visible proof of your consistency.",
-    "evo.d1": "Day 1",
-    "evo.d1c": "Fragile. Still only a promise.",
-    "evo.d30": "Day 30",
-    "evo.d30c": "Stronger. Consistency began to turn into a bond.",
-    "evo.d60": "Day 60",
-    "evo.d60c": "Living proof that you showed up — every day.",
+    "evo.t1": "Day 1",
+    "evo.c1": "Fragile. Still only a promise.",
+    "evo.t2": "Day 30",
+    "evo.c2": "Firmer. The first consistency barrier is broken.",
+    "evo.t3": "Day 60",
+    "evo.c3": "Strong. Sustaining a real history of presence.",
+    "evo.t4": "Day 90",
+    "evo.c4": "The peak. A high-retention way of life.",
     "evo.xp": "Energy is earned only through real presence. Never by effort, never edited by hand.",
     "evo.scrub": "Drag through time",
 
@@ -248,10 +313,27 @@ const I18N = {
     "ret.fix": "With me, absence has a consequence: XP stops, the avatar weakens, the Arena shows it and the Path records it.",
     "ret.insight": "GUTO turns invisible churn into real emotional loss. Retention is the product — not the exit metric.",
 
+    "prof.kicker": "Professional + GUTO",
+    "prof.title": "GUTO doesn't replace the professional. It multiplies the professional.",
+    "prof.lead": "Trainers, nutritionists and coaches stay in charge of strategy. GUTO guarantees daily execution — between one session and the next, for every student.",
+    "prof.colProf": "The professional",
+    "prof.colGuto": "GUTO",
+    "prof.p1": "Creates the strategy",
+    "prof.p2": "Prescribes training and diet",
+    "prof.p3": "Makes the specialized adjustments",
+    "prof.p4": "Attends at specific moments",
+    "prof.p5": "Cares for the human",
+    "prof.g1": "Guarantees daily presence",
+    "prof.g2": "Adapts the week's surprises",
+    "prof.g3": "Keeps the plan alive",
+    "prof.g4": "Acts every single day",
+    "prof.g5": "Monitors churn and warns",
+    "prof.phrase": "The professional is the technical brain. GUTO is the operational presence.",
+
     "b2b.kicker": "B2B",
-    "b2b.q": "“With training, diet and follow-up… will GUTO replace personal trainers and nutritionists?”",
-    "b2b.a": "No. I was created to multiply them.",
-    "b2b.lead": "The professional stays the technical brain. I become the daily presence — between one session and the next, for every student.",
+    "b2b.q": "“How does GUTO reach every student, every day, without one human per student?”",
+    "b2b.a": "By selling presence per gym.",
+    "b2b.lead": "A single contract brings dozens of students. The panel is the distribution engine — and GUTO delivers the 1-to-1 follow-up the gym never could.",
     "b2b.wedge": "Members with follow-up renew more. But human personal training doesn't scale. I'm the individual presence that scales — sold per gym, delivered to every student.",
     "b2b.chain": "Company → Coach → Student",
     "b2b.chainNote": "Every gym is a team. Every coach handles their own. No student is left without presence.",
@@ -261,7 +343,8 @@ const I18N = {
     "b2b.f2d": "The coach locks training and diet — GUTO won't overwrite what the professional decided.",
     "b2b.f3": "Churn risk",
     "b2b.f3d": "Whoever is fading shows up first — before they cancel.",
-    "b2b.panelCap": "Real panel · Control Room",
+    "b2b.panelCap": "Real panel · Control Room (admin)",
+    "b2b.panelCap2": "Real panel · Coach Portal",
     "b2b.phrase": "The trainer prescribes. GUTO follows up. The gym retains.",
 
     "mkt.kicker": "Market",
@@ -274,6 +357,25 @@ const I18N = {
     "mkt.m3v": "92 min/day",
     "mkt.m3l": "Character.AI daily engagement — presence with personality drives time no fitness app reaches.",
     "mkt.note": "Market numbers from public sources cited in the footer. No GUTO number was invented.",
+
+    "comp.kicker": "Competition",
+    "comp.title": "Every competitor solves half the problem.",
+    "comp.lead": "They either deliver execution without presence, or presence without execution. GUTO unites both — and sells per gym.",
+    "comp.colCat": "Category",
+    "comp.colReal": "Real numbers",
+    "comp.colGap": "What's missing",
+    "comp.c1n": "Human personal trainer by app",
+    "comp.c1r": "Future — US$ 199/mo per member",
+    "comp.c1g": "Doesn't scale: one human trainer per member.",
+    "comp.c2n": "AI fitness coach",
+    "comp.c2r": "≈ 41M users · ~US$ 34M revenue · US$ 70M raised",
+    "comp.c2g": "Delivers a plan, not live presence nor a bond.",
+    "comp.c3n": "AI companion",
+    "comp.c3r": "Replika ≈ 30M · Character.AI ≈ 22M MAU",
+    "comp.c3g": "Bond without execution: no training, no guided session.",
+    "comp.c4n": "GUTO",
+    "comp.c4r": "Presence + execution + B2B channel",
+    "comp.c4g": "Unites all three — and sells to gyms.",
 
     "moat.kicker": "Defensibility",
     "moat.title": "Why this is hard to copy.",
@@ -300,6 +402,19 @@ const I18N = {
     "road.vision": "The operating system of presence — it starts in fitness and serves any journey of habit and consistency.",
     "road.honest": "Permanent death is already specified as a product decision and is part of what we're closing — we don't sell as finished what we have yet to ship.",
 
+    "calc.kicker": "The math",
+    "calc.title": "The math works — and scales.",
+    "calc.lead": "Move the sliders. Revenue comes from the company; cost per user is low and the margin grows with scale.",
+    "calc.priceL": "Price per user / month",
+    "calc.usersL": "Active users",
+    "calc.costL": "Estimated cost per user / month (AI + infra)",
+    "calc.mrr": "Monthly revenue (MRR)",
+    "calc.cost": "Estimated monthly cost",
+    "calc.profit": "Estimated monthly profit",
+    "calc.margin": "Margin",
+    "calc.year": "≈ per year",
+    "calc.note": "Simulation. Cost per user is an adjustable estimate (AI + infrastructure); GUTO prices are being defined. No figure is presented as real revenue.",
+
     "ask.kicker": "The raise",
     "ask.title": "We're raising to take GUTO from pre-pilot to market.",
     "ask.lead": "The product is up. Capital accelerates pilots, distribution and the first hires — not the building of what already exists.",
@@ -322,7 +437,7 @@ const I18N = {
     "close.l4": "I am GUTO.",
     "close.whats": "Talk on WhatsApp",
     "close.sourcesT": "Sources",
-    "close.disclaimer": "Market and competitor numbers come from public sources (2024–2026), cited below. No GUTO financial projection, price or metric was invented in this presentation.",
+    "close.disclaimer": "Market and competitor numbers come from public sources (2024–2026), cited below. The calculator is a simulation with an estimated, adjustable cost per user. No GUTO projection, price or metric was presented as real revenue.",
     "footer.tag": "Active digital companion · PT · EN · IT"
   },
 
@@ -334,6 +449,9 @@ const I18N = {
     "nav.langLabel": "Lingua",
     "nav.invest": "Investire",
     "nav.skip": "Salta intro",
+
+    "gate.title": "Scegli la lingua di questa esperienza",
+    "gate.sub": "Choose your language · Escolha o idioma",
 
     "open.l1": "Hai 45 minuti oggi.",
     "open.l2": "Ho adattato il tuo allenamento.",
@@ -371,12 +489,14 @@ const I18N = {
     "evo.kicker": "Evoluzione",
     "evo.title": "Non sale di livello. Cresce con te.",
     "evo.lead": "Ogni presenza validata diventa vita. L'evoluzione non è un punteggio — è la prova visibile della tua costanza.",
-    "evo.d1": "Giorno 1",
-    "evo.d1c": "Fragile. Ancora solo una promessa.",
-    "evo.d30": "Giorno 30",
-    "evo.d30c": "Più forte. La costanza ha iniziato a diventare legame.",
-    "evo.d60": "Giorno 60",
-    "evo.d60c": "La prova vivente che ti sei presentato — ogni giorno.",
+    "evo.t1": "Giorno 1",
+    "evo.c1": "Fragile. Ancora solo una promessa.",
+    "evo.t2": "Giorno 30",
+    "evo.c2": "Più saldo. La prima barriera di costanza è superata.",
+    "evo.t3": "Giorno 60",
+    "evo.c3": "Forte. Sostiene una storia reale di presenza.",
+    "evo.t4": "Giorno 90",
+    "evo.c4": "L'apice. Uno stile di vita ad alta ritenzione.",
     "evo.xp": "L'energia si guadagna solo con la presenza reale. Mai con lo sforzo, mai modificata a mano.",
     "evo.scrub": "Trascina il tempo",
 
@@ -402,10 +522,27 @@ const I18N = {
     "ret.fix": "Con me, l'assenza ha una conseguenza: l'XP si ferma, l'avatar si indebolisce, l'Arena lo mostra e il Percorso lo registra.",
     "ret.insight": "GUTO trasforma il churn invisibile in una perdita emotiva reale. La ritenzione è il prodotto — non la metrica finale.",
 
+    "prof.kicker": "Professionista + GUTO",
+    "prof.title": "GUTO non sostituisce il professionista. Lo moltiplica.",
+    "prof.lead": "Trainer, nutrizionisti e coach restano padroni della strategia. GUTO garantisce l'esecuzione quotidiana — tra una seduta e l'altra, per ogni allievo.",
+    "prof.colProf": "Il professionista",
+    "prof.colGuto": "GUTO",
+    "prof.p1": "Crea la strategia",
+    "prof.p2": "Prescrive allenamento e dieta",
+    "prof.p3": "Fa gli aggiustamenti specializzati",
+    "prof.p4": "Interviene in momenti puntuali",
+    "prof.p5": "Si prende cura dell'umano",
+    "prof.g1": "Garantisce la presenza quotidiana",
+    "prof.g2": "Adatta gli imprevisti della settimana",
+    "prof.g3": "Mantiene vivo il piano",
+    "prof.g4": "Agisce tutti i giorni",
+    "prof.g5": "Monitora l'abbandono e avvisa",
+    "prof.phrase": "Il professionista è il cervello tecnico. GUTO è la presenza operativa.",
+
     "b2b.kicker": "B2B",
-    "b2b.q": "“Con allenamento, dieta e accompagnamento… GUTO sostituirà personal trainer e nutrizionisti?”",
-    "b2b.a": "No. Sono stato creato per moltiplicarli.",
-    "b2b.lead": "Il professionista resta il cervello tecnico. Io divento la presenza quotidiana — tra una seduta e l'altra, per ogni allievo.",
+    "b2b.q": "“Come fa GUTO ad arrivare a ogni allievo, ogni giorno, senza un umano per allievo?”",
+    "b2b.a": "Vendendo presenza per palestra.",
+    "b2b.lead": "Un solo contratto porta decine di allievi. Il pannello è il motore di distribuzione — e GUTO consegna l'accompagnamento 1-a-1 che la palestra non è mai riuscita a dare.",
     "b2b.wedge": "Gli iscritti seguiti rinnovano di più. Ma il personal trainer umano non scala. Io sono la presenza individuale che scala — venduta per palestra, consegnata a ogni allievo.",
     "b2b.chain": "Azienda → Coach → Allievo",
     "b2b.chainNote": "Ogni palestra è un team. Ogni coach segue i suoi. Nessun allievo resta senza presenza.",
@@ -415,7 +552,8 @@ const I18N = {
     "b2b.f2d": "Il coach blocca allenamento e dieta — GUTO non sovrascrive ciò che il professionista ha deciso.",
     "b2b.f3": "Rischio di abbandono",
     "b2b.f3d": "Chi sta sparendo appare per primo — prima di disdire.",
-    "b2b.panelCap": "Pannello reale · Sala di Controllo",
+    "b2b.panelCap": "Pannello reale · Sala di Controllo (admin)",
+    "b2b.panelCap2": "Pannello reale · Portale del Coach",
     "b2b.phrase": "Il trainer prescrive. GUTO accompagna. La palestra trattiene.",
 
     "mkt.kicker": "Mercato",
@@ -428,6 +566,25 @@ const I18N = {
     "mkt.m3v": "92 min/giorno",
     "mkt.m3l": "Engagement giornaliero di Character.AI — la presenza con personalità genera un tempo che nessuna app di fitness raggiunge.",
     "mkt.note": "Numeri di mercato da fonti pubbliche citate nel footer. Nessun numero di GUTO è stato inventato.",
+
+    "comp.kicker": "Concorrenza",
+    "comp.title": "Ogni concorrente risolve metà del problema.",
+    "comp.lead": "O consegnano esecuzione senza presenza, o presenza senza esecuzione. GUTO unisce entrambe — e si vende per palestra.",
+    "comp.colCat": "Categoria",
+    "comp.colReal": "Numeri reali",
+    "comp.colGap": "Cosa manca",
+    "comp.c1n": "Personal trainer umano via app",
+    "comp.c1r": "Future — US$ 199/mese per iscritto",
+    "comp.c1g": "Non scala: un trainer umano per iscritto.",
+    "comp.c2n": "Coach di IA fitness",
+    "comp.c2r": "≈ 41 mln utenti · ~US$ 34 mln ricavi · US$ 70 mln raccolti",
+    "comp.c2g": "Consegna un piano, non presenza viva né legame.",
+    "comp.c3n": "Compagno di IA",
+    "comp.c3r": "Replika ≈ 30 mln · Character.AI ≈ 22 mln MAU",
+    "comp.c3g": "Legame senza esecuzione: non crea allenamenti né guida la seduta.",
+    "comp.c4n": "GUTO",
+    "comp.c4r": "Presenza + esecuzione + canale B2B",
+    "comp.c4g": "Unisce i tre mondi — e si vende alle palestre.",
 
     "moat.kicker": "Difendibilità",
     "moat.title": "Perché è difficile da copiare.",
@@ -454,6 +611,19 @@ const I18N = {
     "road.vision": "Il sistema operativo della presenza — parte dal fitness e serve qualsiasi percorso di abitudine e costanza.",
     "road.honest": "La morte permanente è già specificata come decisione di prodotto ed è parte di ciò che stiamo chiudendo — non vendiamo come finito ciò che dobbiamo ancora consegnare.",
 
+    "calc.kicker": "I conti",
+    "calc.title": "I conti tornano — e scalano.",
+    "calc.lead": "Muovi le barre. Il ricavo nasce dall'azienda; il costo per utente è basso e il margine cresce con la scala.",
+    "calc.priceL": "Prezzo per utente / mese",
+    "calc.usersL": "Utenti attivi",
+    "calc.costL": "Costo stimato per utente / mese (IA + infra)",
+    "calc.mrr": "Ricavo mensile (MRR)",
+    "calc.cost": "Costo mensile stimato",
+    "calc.profit": "Profitto mensile stimato",
+    "calc.margin": "Margine",
+    "calc.year": "≈ all'anno",
+    "calc.note": "Simulazione. Il costo per utente è una stima regolabile (IA + infrastruttura); i prezzi di GUTO sono in via di definizione. Nessun valore è presentato come ricavo reale.",
+
     "ask.kicker": "La raccolta",
     "ask.title": "Stiamo raccogliendo per portare GUTO dal pre-pilota al mercato.",
     "ask.lead": "Il prodotto è in piedi. Il capitale accelera piloti, distribuzione e le prime assunzioni — non la costruzione di ciò che esiste già.",
@@ -476,7 +646,7 @@ const I18N = {
     "close.l4": "Io sono GUTO.",
     "close.whats": "Scrivi su WhatsApp",
     "close.sourcesT": "Fonti",
-    "close.disclaimer": "I numeri di mercato e dei concorrenti provengono da fonti pubbliche (2024–2026), citate sotto. Nessuna proiezione finanziaria, prezzo o metrica di GUTO è stata inventata in questa presentazione.",
+    "close.disclaimer": "I numeri di mercato e dei concorrenti provengono da fonti pubbliche (2024–2026), citate sotto. Il calcolatore è una simulazione con un costo per utente stimato e regolabile. Nessuna proiezione, prezzo o metrica di GUTO è stata presentata come ricavo reale.",
     "footer.tag": "Compagno attivo digitale · PT · EN · IT"
   }
 };
