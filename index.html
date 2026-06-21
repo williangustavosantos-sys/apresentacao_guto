@@ -313,24 +313,47 @@ input[type=range].rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%
 .road p{font-size:.96rem;color:var(--ink-2);margin-top:12px}.road.vision p{color:#cfe6ff}
 .honest{margin-top:30px;padding:18px 22px;border:1px dashed var(--line-2);border-radius:14px;font-size:.92rem;color:var(--ink-3);background:rgba(13,35,65,.025)}
 
-/* ---------- 11a · calculadora ---------- */
+/* ---------- 11a · calculadora (due diligence) ---------- */
 #calc{background:linear-gradient(180deg,#eaf1f9,var(--surface))}
-.calc-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;margin-top:46px;align-items:center}
-.calc-controls{display:flex;flex-direction:column;gap:26px}
-.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;font-weight:600;color:var(--ink-2);margin-bottom:10px}
-.ctrl label b{font-family:var(--mono);font-size:1.12rem;font-weight:700;color:var(--navy)}
-.ctrl small{display:block;font-size:.78rem;color:var(--ink-3);margin-top:8px}
-.calc-out{background:linear-gradient(160deg,#0d2341,#0a1c38);border-radius:var(--r-xl);padding:34px;color:#fff;box-shadow:var(--shadow)}
-.calc-kpi{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(125,240,255,.13)}
-.calc-kpi:last-of-type{border-bottom:0}
-.calc-kpi .k{font-size:.92rem;color:#aecbe8}
-.calc-kpi .v{font-family:var(--mono);font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:700;letter-spacing:-.01em}
+.calc-bar2{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.calc-seg{display:inline-flex;gap:4px;padding:4px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--line-2);box-shadow:var(--shadow-sm)}
+.calc-seg button{border:0;background:transparent;font-family:inherit;font-size:.84rem;font-weight:700;color:var(--ink-3);padding:8px 16px;border-radius:var(--r-pill);cursor:pointer;transition:all .2s}
+.calc-seg button:hover{color:var(--navy)}
+.calc-seg button.on{background:var(--navy);color:#fff}
+.calc-seg.cur button.on{background:var(--cta);color:#08303b}
+.calc-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:36px;margin-top:24px;align-items:start}
+.calc-controls{display:flex;flex-direction:column;gap:20px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.9rem;font-weight:600;color:var(--ink-2);margin-bottom:10px}
+.ctrl label b{font-size:1.08rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-disc{margin-top:12px;border:0;background:transparent;color:var(--hl);font-family:inherit;font-size:.82rem;font-weight:700;cursor:pointer;padding:0;text-align:left}
+.calc-disc:hover{text-decoration:underline}
+.comp,.adv{overflow:hidden;max-height:0;transition:max-height .45s var(--e)}
+.comp-in{padding:12px 0 2px}
+.comp-item{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.comp-item .ci{font-size:.88rem;font-weight:600;color:var(--navy)}
+.comp-item .cd{font-size:.75rem;color:var(--ink-3);margin-top:2px;max-width:42ch}
+.comp-item .cp{font-size:.78rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.comp-item .cv{font-size:.9rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.comp-tot{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 2px;margin-top:4px;border-top:2px solid var(--line-2);font-weight:800;color:var(--navy)}
+.comp-tot .v{font-variant-numeric:tabular-nums}
+.adv-in{padding-top:18px;display:flex;flex-direction:column;gap:18px}
+.calc-out{background:linear-gradient(160deg,#0d2341,#0a1c38);border-radius:var(--r-xl);padding:24px 30px;color:#fff;box-shadow:var(--shadow)}
+.og{padding:13px 0;border-bottom:1px solid rgba(125,240,255,.12)}
+.og:first-child{padding-top:0}.og:last-child{border-bottom:0;padding-bottom:0}
+.ogh{font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-3);margin-bottom:6px;opacity:.85}
+.calc-kpi{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:6px 0}
+.calc-kpi .k{font-size:.9rem;color:#aecbe8}
+.calc-kpi.sm .k{font-size:.82rem;color:#8fa9c8}
+.calc-kpi .v{font-size:1.02rem;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.calc-kpi .v.big{font-size:clamp(1.4rem,3.4vw,1.95rem);font-weight:800}
 .calc-kpi .v.good{color:var(--cyan-3)}
-.calc-bar{height:12px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;display:flex;margin:22px 0 8px}
+.calc-kpi .v.bad{color:#ff8da3}
+.calc-bar{height:12px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;display:flex;margin:4px 0 12px}
 .calc-bar .pf{background:linear-gradient(90deg,#7df0ff,#1ec1de);transition:width .4s var(--e)}
-.calc-bar .ct{background:rgba(255,255,255,.18);transition:width .4s var(--e)}
-.calc-barleg{display:flex;justify-content:space-between;font-size:.74rem;color:#9db2d2}
-.calc-note{font-size:.8rem;color:var(--ink-3);font-style:italic;margin-top:24px;text-align:center}
+.calc-bar .ct{background:rgba(255,255,255,.16);transition:width .4s var(--e)}
+.adv-row{display:none}
+.calc-out.adv-on .adv-row{display:flex}
+.calc-note{font-size:.8rem;color:var(--ink-3);font-style:italic;margin-top:24px;text-align:center;max-width:84ch;margin-left:auto;margin-right:auto}
 
 /* ---------- 11b · captação ---------- */
 .ask-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
@@ -735,30 +758,70 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
   <div class="wrap">
     <p class="kicker reveal" data-i18n="calc.kicker"></p>
     <h2 class="big reveal d1" data-i18n="calc.title"></h2>
-    <p class="lead reveal d2" data-i18n="calc.lead"></p>
+    <p class="lead reveal d2" data-i18n="calc.lead" style="max-width:64ch"></p>
+    <div class="calc-bar2 reveal d2">
+      <div class="calc-seg cur" id="calcCur"></div>
+      <div class="calc-seg" id="calcScen"></div>
+    </div>
     <div class="calc-grid reveal d2">
       <div class="calc-controls">
         <div class="ctrl">
           <label><span data-i18n="calc.priceL"></span><b id="cPriceV"></b></label>
-          <input type="range" min="9" max="49" step="5" value="29" class="rng" id="cPrice">
+          <input type="range" class="rng" id="cPrice">
         </div>
         <div class="ctrl">
           <label><span data-i18n="calc.usersL"></span><b id="cUsersV"></b></label>
-          <input type="range" min="100" max="100000" step="100" value="5000" class="rng" id="cUsers">
+          <input type="range" min="500" max="50000" step="500" value="5000" class="rng" id="cUsers">
         </div>
         <div class="ctrl">
-          <label><span data-i18n="calc.costL"></span><b id="cCostV"></b></label>
-          <input type="range" min="2" max="15" step="0.5" value="6" class="rng" id="cCost">
+          <label><span data-i18n="calc.varCostL"></span><b id="cCostV"></b></label>
+          <input type="range" class="rng" id="cCost">
+          <button class="calc-disc" id="compToggle" type="button"></button>
+          <div class="comp" id="compBox"></div>
         </div>
+        <div class="ctrl">
+          <label><span data-i18n="calc.fixedL"></span><b id="cFixedV"></b></label>
+          <input type="range" class="rng" id="cFixed">
+        </div>
+        <button class="calc-disc" id="advToggle" type="button"></button>
+        <div class="adv" id="advBox"><div class="adv-in">
+          <div class="ctrl">
+            <label><span data-i18n="calc.churnL"></span><b id="cChurnV"></b></label>
+            <input type="range" min="1" max="10" step="0.5" value="4" class="rng" id="cChurn">
+          </div>
+          <div class="ctrl">
+            <label><span data-i18n="calc.cacL"></span><b id="cCacV"></b></label>
+            <input type="range" class="rng" id="cCac">
+          </div>
+        </div></div>
       </div>
-      <div class="calc-out">
-        <div class="calc-kpi"><span class="k" data-i18n="calc.mrr"></span><span class="v" id="oMrr"></span></div>
-        <div class="calc-kpi"><span class="k" data-i18n="calc.cost"></span><span class="v" id="oCost"></span></div>
-        <div class="calc-kpi"><span class="k" data-i18n="calc.profit"></span><span class="v good" id="oProfit"></span></div>
-        <div class="calc-bar"><div class="pf" id="barPf"></div><div class="ct" id="barCt"></div></div>
-        <div class="calc-barleg"><span data-i18n="calc.profit"></span><span data-i18n="calc.cost"></span></div>
-        <div class="calc-kpi"><span class="k" data-i18n="calc.margin"></span><span class="v good" id="oMargin"></span></div>
-        <div class="calc-kpi"><span class="k" data-i18n="calc.year"></span><span class="v" id="oYear"></span></div>
+      <div class="calc-out" id="calcOut">
+        <div class="og">
+          <div class="ogh" data-i18n="calc.rRev"></div>
+          <div class="calc-kpi"><span class="k" data-i18n="calc.mrr"></span><span class="v big" id="oMrr"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.arr"></span><span class="v" id="oArr"></span></div>
+        </div>
+        <div class="og">
+          <div class="ogh" data-i18n="calc.rCost"></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.varCost"></span><span class="v" id="oVar"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.fixed"></span><span class="v" id="oFix"></span></div>
+        </div>
+        <div class="og">
+          <div class="ogh" data-i18n="calc.rResult"></div>
+          <div class="calc-bar"><div class="pf" id="barPf"></div><div class="ct" id="barCt"></div></div>
+          <div class="calc-kpi"><span class="k" data-i18n="calc.opProfit"></span><span class="v big good" id="oProfit"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.opProfitY"></span><span class="v" id="oProfitY"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.opMargin"></span><span class="v" id="oOpMargin"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.contribPct"></span><span class="v" id="oContrib"></span></div>
+        </div>
+        <div class="og">
+          <div class="ogh" data-i18n="calc.rHealth"></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.breakeven"></span><span class="v" id="oBreak"></span></div>
+          <div class="calc-kpi sm"><span class="k" data-i18n="calc.per1k"></span><span class="v good" id="oPer1k"></span></div>
+          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.ltv"></span><span class="v" id="oLtv"></span></div>
+          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.ltvcac"></span><span class="v" id="oLtvCac"></span></div>
+          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.payback"></span><span class="v" id="oPayback"></span></div>
+        </div>
       </div>
     </div>
     <p class="calc-note reveal d3" data-i18n="calc.note"></p>
@@ -930,7 +993,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
     buildChips();
     if(curScene!=null)playScene(curScene);
     setEvo(evoRange?+evoRange.value:0);
-    updateCalc();
+    calcRefresh();
     renderAdm();
     buildQA();
   }
@@ -1029,27 +1092,92 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
   if(evoSec){var eObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){eObs.unobserve(evoSec);
     if(RM){setEvo(3);return;}bondTimers.push(setTimeout(function(){setEvo(1);},800));bondTimers.push(setTimeout(function(){setEvo(2);},1700));bondTimers.push(setTimeout(function(){setEvo(3);},2700));}});},{threshold:.45});eObs.observe(evoSec);}
 
-  /* ---------- calculator ---------- */
-  var cPrice=document.getElementById('cPrice'),cUsers=document.getElementById('cUsers'),cCost=document.getElementById('cCost');
-  function fmtMoney(n){return 'R$ '+Math.round(n).toLocaleString('pt-BR');}
-  function fmtInt(n){return Math.round(n).toLocaleString('pt-BR');}
-  function updateCalc(){
-    if(!cPrice)return;
-    var price=parseInt(cPrice.value,10)+0.90, users=parseInt(cUsers.value,10), cpu=parseFloat(cCost.value);
-    var mrr=price*users, cost=cpu*users, profit=mrr-cost, margin=mrr>0?(profit/mrr*100):0;
-    document.getElementById('cPriceV').textContent='R$ '+(price.toFixed(2).replace('.',','));
-    document.getElementById('cUsersV').textContent=fmtInt(users);
-    document.getElementById('cCostV').textContent='R$ '+(cpu.toFixed(2).replace('.',','));
-    document.getElementById('oMrr').textContent=fmtMoney(mrr);
-    document.getElementById('oCost').textContent=fmtMoney(cost);
-    document.getElementById('oProfit').textContent=fmtMoney(profit);
-    document.getElementById('oMargin').textContent=Math.round(margin)+'%';
-    document.getElementById('oYear').textContent=fmtMoney(profit*12);
-    var pf=Math.max(0,Math.min(100,margin));
-    document.getElementById('barPf').style.width=pf+'%';
-    document.getElementById('barCt').style.width=(100-pf)+'%';
-  }
-  [cPrice,cUsers,cCost].forEach(function(el){if(el)el.addEventListener('input',updateCalc);});
+  /* ---------- calculator (due diligence) ---------- */
+  var CUR={
+    BRL:{sym:'R$',loc:'pt-BR',rate:1,prices:[14.90,19.90,24.90,29.90,34.90,39.90,49.90],
+      cost:{min:2,max:15,step:0.5},fixed:{min:20000,max:300000,step:5000},cac:{min:20,max:400,step:10,def:120},
+      scen:{cons:{p:1,u:2000,c:8,f:120000},real:{p:2,u:5000,c:6,f:90000},opt:{p:3,u:12000,c:4.5,f:70000}}},
+    EUR:{sym:'€',loc:'de-DE',rate:5.9,prices:[2.99,3.99,4.99,5.99,6.99,7.99,9.99],
+      cost:{min:0.4,max:2.8,step:0.1},fixed:{min:3500,max:52000,step:1000},cac:{min:4,max:75,step:2,def:20},
+      scen:{cons:{p:1,u:2000,c:1.40,f:20000},real:{p:2,u:5000,c:1.05,f:16000},opt:{p:3,u:12000,c:0.80,f:12000}}},
+    USD:{sym:'$',loc:'en-US',rate:5.4,prices:[2.99,3.99,4.99,5.99,6.99,7.99,9.99],
+      cost:{min:0.4,max:3,step:0.1},fixed:{min:4000,max:56000,step:1000},cac:{min:4,max:80,step:2,def:22},
+      scen:{cons:{p:1,u:2000,c:1.45,f:22000},real:{p:2,u:5000,c:1.10,f:18000},opt:{p:3,u:12000,c:0.85,f:13000}}}
+  };
+  var COMP=[['cIA',50],['cSup',13],['cInfra',12],['cBuf',12],['cDb',6],['cStore',4],['cMon',3]];
+  var ccur='BRL',cscen='real',compOpen=false,advOpen=false;
+  var cPrice=document.getElementById('cPrice'),cUsers=document.getElementById('cUsers'),cCost=document.getElementById('cCost'),
+      cFixed=document.getElementById('cFixed'),cChurn=document.getElementById('cChurn'),cCac=document.getElementById('cCac'),
+      compBox=document.getElementById('compBox'),advBox=document.getElementById('advBox'),
+      compToggle=document.getElementById('compToggle'),advToggle=document.getElementById('advToggle'),
+      calcOut=document.getElementById('calcOut'),calcCur=document.getElementById('calcCur'),calcScen=document.getElementById('calcScen');
+  function ccfg(){return CUR[ccur];}
+  function cset(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  function money(v){var c=ccfg();return c.sym+' '+Math.round(v).toLocaleString(c.loc);}
+  function moneyD(v){var c=ccfg();return c.sym+' '+v.toLocaleString(c.loc,{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function intf(v){return Math.round(v).toLocaleString(ccfg().loc);}
+  function dec1(v){return v.toLocaleString(ccfg().loc,{minimumFractionDigits:1,maximumFractionDigits:1});}
+  function clampSnap(v,r){v=Math.max(r.min,Math.min(r.max,v));return Math.round(v/r.step)*r.step;}
+  function setupCalcSliders(){if(!cPrice)return;var c=ccfg();
+    cPrice.min=0;cPrice.max=c.prices.length-1;cPrice.step=1;
+    cCost.min=c.cost.min;cCost.max=c.cost.max;cCost.step=c.cost.step;
+    cFixed.min=c.fixed.min;cFixed.max=c.fixed.max;cFixed.step=c.fixed.step;
+    cCac.min=c.cac.min;cCac.max=c.cac.max;cCac.step=c.cac.step;}
+  function applyScen(s){cscen=s;var c=ccfg(),sc=c.scen[s];
+    cPrice.value=sc.p;cUsers.value=sc.u;cCost.value=sc.c;cFixed.value=sc.f;cCac.value=c.cac.def;
+    updateCalc();renderCalcSeg();}
+  function setCurrency(cur){if(cur===ccur||!CUR[cur])return;
+    var o=CUR[ccur],n=CUR[cur];
+    var cost=parseFloat(cCost.value)*o.rate/n.rate,fixed=parseFloat(cFixed.value)*o.rate/n.rate,cac=parseFloat(cCac.value)*o.rate/n.rate;
+    ccur=cur;setupCalcSliders();
+    cCost.value=clampSnap(cost,n.cost);cFixed.value=clampSnap(fixed,n.fixed);cCac.value=clampSnap(cac,n.cac);
+    updateCalc();renderCalcSeg();}
+  function renderCalcSeg(){
+    if(calcCur)calcCur.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-cur')===ccur);});
+    if(calcScen)calcScen.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-scen')===cscen);});}
+  function renderComp(cost){if(!compBox)return;var html='<div class="comp-in">';
+    COMP.forEach(function(it){var v=it[1]/100*cost;
+      html+='<div class="comp-item"><div><div class="ci">'+(T['calc.'+it[0]]||'')+'</div><div class="cd">'+(T['calc.'+it[0]+'d']||'')+'</div></div><div class="cp">'+it[1]+'%</div><div class="cv">'+moneyD(v)+'</div></div>';});
+    html+='<div class="comp-tot"><span>'+(T['calc.compTotal']||'')+'</span><span class="v">'+moneyD(cost)+'</span></div></div>';compBox.innerHTML=html;}
+  function updateCalc(){if(!cPrice)return;var c=ccfg();
+    var price=c.prices[Math.round(+cPrice.value)]||c.prices[0];
+    var users=+cUsers.value,cost=+cCost.value,fixed=+cFixed.value,churn=+cChurn.value,cac=+cCac.value;
+    var mrr=price*users,arr=mrr*12,varM=cost*users,varY=varM*12;
+    var contribU=price-cost,contribPct=price>0?contribU/price*100:0;
+    var opM=contribU*users-fixed,opY=opM*12,opMargin=mrr>0?opM/mrr*100:0;
+    var be=contribU>0?Math.ceil(fixed/contribU):Infinity,per1k=contribU*1000;
+    var life=churn>0?1/(churn/100):0,ltv=contribU*life,ltvcac=cac>0?ltv/cac:0,payback=contribU>0?cac/contribU:Infinity;
+    cset('cPriceV',moneyD(price));cset('cUsersV',intf(users));cset('cCostV',moneyD(cost));
+    cset('cFixedV',money(fixed));cset('cChurnV',dec1(churn)+'%');cset('cCacV',moneyD(cac));
+    cset('oMrr',money(mrr));cset('oArr',money(arr));cset('oVar',money(varM));cset('oFix',money(fixed));
+    cset('oProfit',money(opM));cset('oProfitY',money(opY));
+    cset('oOpMargin',Math.round(opMargin)+'%');cset('oContrib',Math.round(contribPct)+'%');
+    cset('oBreak',isFinite(be)?intf(be):'—');cset('oPer1k',money(per1k));
+    cset('oLtv',money(ltv));cset('oLtvCac',isFinite(ltvcac)&&ltvcac>0?dec1(ltvcac)+' : 1':'—');
+    cset('oPayback',isFinite(payback)?dec1(payback)+' '+(T['calc.months']||''):'—');
+    var op=document.getElementById('oProfit');if(op){op.classList.toggle('bad',opM<0);op.classList.toggle('good',opM>=0);}
+    var opy=document.getElementById('oProfitY');if(opy){opy.classList.toggle('bad',opM<0);}
+    var per=document.getElementById('oPer1k');if(per){per.classList.toggle('bad',per1k<0);per.classList.toggle('good',per1k>=0);}
+    var totalCost=varM+fixed,pfW=mrr>0&&opM>0?Math.min(100,opM/mrr*100):0,ctW=mrr>0?Math.min(100,totalCost/mrr*100):0;
+    var bp=document.getElementById('barPf'),bc=document.getElementById('barCt');if(bp)bp.style.width=pfW+'%';if(bc)bc.style.width=ctW+'%';
+    renderComp(cost);if(compOpen&&compBox)compBox.style.maxHeight=compBox.scrollHeight+'px';}
+  function calcChrome(){
+    if(calcScen)calcScen.querySelectorAll('button').forEach(function(b){var k=b.getAttribute('data-scen');b.textContent=T['calc.'+(k==='cons'?'sCons':k==='real'?'sReal':'sOpt')]||'';});
+    if(compToggle)compToggle.textContent=compOpen?(T['calc.compHide']||''):(T['calc.compToggle']||'');
+    if(advToggle)advToggle.textContent=advOpen?(T['calc.advHide']||''):(T['calc.advToggle']||'');}
+  function calcRefresh(){calcChrome();updateCalc();renderCalcSeg();
+    if(compOpen&&compBox)compBox.style.maxHeight=compBox.scrollHeight+'px';
+    if(advOpen&&advBox)advBox.style.maxHeight=advBox.scrollHeight+'px';}
+  function initCalc(){if(!cPrice)return;
+    calcCur.innerHTML=['BRL','EUR','USD'].map(function(x){return '<button data-cur="'+x+'">'+x+'</button>';}).join('');
+    calcScen.innerHTML=['cons','real','opt'].map(function(x){return '<button data-scen="'+x+'"></button>';}).join('');
+    calcCur.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setCurrency(b.getAttribute('data-cur'));});});
+    calcScen.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){applyScen(b.getAttribute('data-scen'));});});
+    setupCalcSliders();applyScen('real');
+    [cPrice,cUsers,cCost,cFixed,cChurn,cCac].forEach(function(el){if(el)el.addEventListener('input',function(){updateCalc();});});
+    compToggle.addEventListener('click',function(){compOpen=!compOpen;compBox.style.maxHeight=compOpen?compBox.scrollHeight+'px':'0';compToggle.textContent=compOpen?(T['calc.compHide']||''):(T['calc.compToggle']||'');});
+    advToggle.addEventListener('click',function(){advOpen=!advOpen;advBox.style.maxHeight=advOpen?advBox.scrollHeight+'px':'0';calcOut.classList.toggle('adv-on',advOpen);advToggle.textContent=advOpen?(T['calc.advHide']||''):(T['calc.advToggle']||'');});}
+  initCalc();
 
   /* ---------- interactive admin panel ---------- */
   var ADM_STUDENTS=[
