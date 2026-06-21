@@ -315,45 +315,76 @@ input[type=range].rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%
 
 /* ---------- 11a · calculadora (due diligence) ---------- */
 #calc{background:linear-gradient(180deg,#eaf1f9,var(--surface))}
-.calc-bar2{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
 .calc-seg{display:inline-flex;gap:4px;padding:4px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--line-2);box-shadow:var(--shadow-sm)}
 .calc-seg button{border:0;background:transparent;font-family:inherit;font-size:.84rem;font-weight:700;color:var(--ink-3);padding:8px 16px;border-radius:var(--r-pill);cursor:pointer;transition:all .2s}
 .calc-seg button:hover{color:var(--navy)}
 .calc-seg button.on{background:var(--navy);color:#fff}
 .calc-seg.cur button.on{background:var(--cta);color:#08303b}
-.calc-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:36px;margin-top:24px;align-items:start}
-.calc-controls{display:flex;flex-direction:column;gap:20px}
-.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.9rem;font-weight:600;color:var(--ink-2);margin-bottom:10px}
-.ctrl label b{font-size:1.08rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
-.calc-disc{margin-top:12px;border:0;background:transparent;color:var(--hl);font-family:inherit;font-size:.82rem;font-weight:700;cursor:pointer;padding:0;text-align:left}
-.calc-disc:hover{text-decoration:underline}
-.comp,.adv{overflow:hidden;max-height:0;transition:max-height .45s var(--e)}
-.comp-in{padding:12px 0 2px}
-.comp-item{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
-.comp-item .ci{font-size:.88rem;font-weight:600;color:var(--navy)}
-.comp-item .cd{font-size:.75rem;color:var(--ink-3);margin-top:2px;max-width:42ch}
-.comp-item .cp{font-size:.78rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.comp-item .cv{font-size:.9rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.comp-tot{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0 2px;margin-top:4px;border-top:2px solid var(--line-2);font-weight:800;color:var(--navy)}
-.comp-tot .v{font-variant-numeric:tabular-nums}
-.adv-in{padding-top:18px;display:flex;flex-direction:column;gap:18px}
-.calc-out{background:linear-gradient(160deg,#0d2341,#0a1c38);border-radius:var(--r-xl);padding:24px 30px;color:#fff;box-shadow:var(--shadow)}
-.og{padding:13px 0;border-bottom:1px solid rgba(125,240,255,.12)}
-.og:first-child{padding-top:0}.og:last-child{border-bottom:0;padding-bottom:0}
-.ogh{font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan-3);margin-bottom:6px;opacity:.85}
-.calc-kpi{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:6px 0}
-.calc-kpi .k{font-size:.9rem;color:#aecbe8}
-.calc-kpi.sm .k{font-size:.82rem;color:#8fa9c8}
-.calc-kpi .v{font-size:1.02rem;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.calc-kpi .v.big{font-size:clamp(1.4rem,3.4vw,1.95rem);font-weight:800}
-.calc-kpi .v.good{color:var(--cyan-3)}
-.calc-kpi .v.bad{color:#ff8da3}
-.calc-bar{height:12px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;display:flex;margin:4px 0 12px}
-.calc-bar .pf{background:linear-gradient(90deg,#7df0ff,#1ec1de);transition:width .4s var(--e)}
-.calc-bar .ct{background:rgba(255,255,255,.16);transition:width .4s var(--e)}
-.adv-row{display:none}
-.calc-out.adv-on .adv-row{display:flex}
-.calc-note{font-size:.8rem;color:var(--ink-3);font-style:italic;margin-top:24px;text-align:center;max-width:84ch;margin-left:auto;margin-right:auto}
+.fin-h{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:56px 0 4px;display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.fin-h .tagi{font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--hl);background:rgba(82,231,255,.14);border:1px solid rgba(82,231,255,.4);padding:5px 11px;border-radius:99px}
+.fin-h .tagi.alt{color:#08303b;background:var(--cta);border-color:transparent}
+.fin-sub{color:var(--ink-2);font-size:1rem;max-width:62ch;margin-bottom:22px}
+.fin-inc{font-size:.86rem;color:var(--ink-3);max-width:82ch;margin-top:16px}
+.fin-note{font-size:.85rem;color:var(--ink-3);font-style:italic;margin-top:12px;max-width:82ch}
+.fin-hi{text-align:center;font-size:clamp(1.15rem,2.8vw,1.6rem);font-weight:800;color:var(--navy);letter-spacing:-.015em;margin-top:28px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;text-align:center;box-shadow:var(--shadow-sm)}
+.tier .tl{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.tier .tv{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-top:8px}
+.tier .tv span{font-size:.84rem;font-weight:600;color:var(--ink-3);margin-left:2px}
+.fin-region{display:flex;align-items:center;gap:14px;margin-top:48px;flex-wrap:wrap}
+.fin-region-l{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:12px}
+.flow-step{flex:1;min-width:148px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm);text-align:center}
+.flow-step span{display:block;font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.flow-step b{display:block;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin-top:8px}
+.flow-step.pay b{color:var(--navy)}
+.flow-step.cost b{color:#b45309}
+.flow-step.profit{background:linear-gradient(160deg,#0d2341,#0a1c38);border-color:transparent}
+.flow-step.profit span{color:var(--cyan-3)}
+.flow-step.profit b{color:#fff}
+.flow-op{display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:var(--steel)}
+.flow-margin{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 22px;font-weight:800;color:var(--hl);background:rgba(82,231,255,.1);border:1px solid rgba(82,231,255,.3);border-radius:var(--r-lg);min-width:120px}
+.flow-margin span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.flow-margin b{font-size:1.7rem}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s var(--e),box-shadow .3s}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.plan.feat{border-color:rgba(82,231,255,.55);background:linear-gradient(170deg,rgba(82,231,255,.06),#fff)}
+.plan-n{font-size:1.15rem;font-weight:800;color:var(--navy);letter-spacing:.02em}
+.plan-cap{font-size:.9rem;color:var(--ink-3);margin:3px 0 16px}
+.plan-price{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.plan-price span{font-size:.84rem;font-weight:600;color:var(--ink-3)}
+.peraluno{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:end}
+.pa-item{display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm)}
+.pa-bar{width:100%;height:120px;display:flex;align-items:flex-end;justify-content:center}
+.pa-bar i{display:block;width:60px;background:var(--cta);border-radius:10px 10px 0 0;box-shadow:0 0 16px rgba(82,231,255,.4);transition:height .5s var(--e)}
+.pa-v{font-size:clamp(1.4rem,3.2vw,1.9rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.pa-d{font-size:.8rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.pa-l{font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--hl)}
+.why{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+.why-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:26px;box-shadow:var(--shadow-sm);text-align:center}
+.why-card.feat{background:linear-gradient(160deg,#0d2341,#0a1c38);border-color:transparent;color:#fff}
+.why-tag{font-size:.7rem;font-weight:800;letter-spacing:.18em;color:var(--ink-3)}
+.why-card.feat .why-tag{color:var(--cyan-3)}
+.why-dots{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:16px auto;max-width:230px}
+.why-dots i{width:9px;height:9px;border-radius:50%;background:var(--steel);opacity:.5}
+.why-one{width:96px;height:96px;border-radius:50%;margin:16px auto;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:800;color:#08303b;background:var(--cta);box-shadow:0 10px 30px rgba(82,231,255,.4)}
+.why-b{font-size:1.02rem;font-weight:700;color:var(--navy)}.why-card.feat .why-b{color:#fff}
+.why-n{font-size:.86rem;color:var(--ink-3);margin-top:4px}.why-card.feat .why-n{color:var(--cyan-3)}
+.why-vs{font-size:1rem;font-weight:800;color:var(--steel);text-transform:uppercase;letter-spacing:.1em}
+.profit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm)}
+.pc-card.feat{border-color:rgba(82,231,255,.55);background:linear-gradient(170deg,rgba(82,231,255,.06),#fff)}
+.pc-n{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:14px}
+.pc-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.92rem;color:var(--ink-2);padding:6px 0}
+.pc-row b{font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.pc-row b.neg{color:#b45309}
+.pc-row.big{margin-top:4px;font-size:1rem}
+.pc-row.big b{font-size:1.3rem;color:var(--hl)}
+.pc-bar{height:10px;border-radius:99px;background:var(--surface-deep);overflow:hidden;margin:10px 0}
+.pc-bar i{display:block;height:100%;background:var(--cta);border-radius:99px;box-shadow:0 0 12px rgba(82,231,255,.4);transition:width .5s var(--e)}
+.calc-note{font-size:.8rem;color:var(--ink-3);font-style:italic;margin-top:28px;text-align:center;max-width:84ch;margin-left:auto;margin-right:auto}
 
 /* ---------- 11b · captação ---------- */
 .ask-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
@@ -451,9 +482,12 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
 
 /* ---------- responsive ---------- */
 @media(max-width:880px){
-  .split,.fix-row,.ask-head,.calc-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .split,.fix-row,.ask-head{grid-template-columns:1fr;display:flex;flex-direction:column}
   .ask-head{align-items:flex-start}.round{text-align:left}
-  .stats3,.market3,.moat-grid,.road3,.b2bgrid{grid-template-columns:1fr}
+  .stats3,.market3,.moat-grid,.road3,.b2bgrid,.tiers,.plans,.peraluno,.profit{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}.why-vs{transform:rotate(90deg)}
+  .flow-op{justify-content:center;transform:rotate(90deg)}
+  .flow-margin{min-width:0}
   .uses{grid-template-columns:1fr 1fr}
   .prof-versus{grid-template-columns:1fr;display:flex;flex-direction:column}
   .prof-mid{min-height:44px;padding:8px}
@@ -757,74 +791,68 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
 <section id="calc" class="sec">
   <div class="wrap">
     <p class="kicker reveal" data-i18n="calc.kicker"></p>
-    <h2 class="big reveal d1" data-i18n="calc.title"></h2>
+    <h2 class="big reveal d1" data-i18n="calc.title" style="max-width:24ch"></h2>
     <p class="lead reveal d2" data-i18n="calc.lead" style="max-width:64ch"></p>
-    <div class="calc-bar2 reveal d2">
-      <div class="calc-seg cur" id="calcCur"></div>
-      <div class="calc-seg" id="calcScen"></div>
+
+    <!-- 1 · custo real por usuário -->
+    <h3 class="fin-h reveal d2" data-i18n="calc.costT"></h3>
+    <p class="fin-sub reveal d2" data-i18n="calc.costSub"></p>
+    <div class="tiers reveal d2">
+      <div class="tier"><div class="tl" data-i18n="calc.rBR"></div><div class="tv">R$ 7<span data-i18n="calc.perMo"></span></div></div>
+      <div class="tier"><div class="tl" data-i18n="calc.rEU"></div><div class="tv">€ 1,50<span data-i18n="calc.perMo"></span></div></div>
+      <div class="tier"><div class="tl" data-i18n="calc.rUS"></div><div class="tv">US$ 1,40<span data-i18n="calc.perMo"></span></div></div>
     </div>
-    <div class="calc-grid reveal d2">
-      <div class="calc-controls">
-        <div class="ctrl">
-          <label><span data-i18n="calc.priceL"></span><b id="cPriceV"></b></label>
-          <input type="range" class="rng" id="cPrice">
-        </div>
-        <div class="ctrl">
-          <label><span data-i18n="calc.usersL"></span><b id="cUsersV"></b></label>
-          <input type="range" min="500" max="50000" step="500" value="5000" class="rng" id="cUsers">
-        </div>
-        <div class="ctrl">
-          <label><span data-i18n="calc.varCostL"></span><b id="cCostV"></b></label>
-          <input type="range" class="rng" id="cCost">
-          <button class="calc-disc" id="compToggle" type="button"></button>
-          <div class="comp" id="compBox"></div>
-        </div>
-        <div class="ctrl">
-          <label><span data-i18n="calc.fixedL"></span><b id="cFixedV"></b></label>
-          <input type="range" class="rng" id="cFixed">
-        </div>
-        <button class="calc-disc" id="advToggle" type="button"></button>
-        <div class="adv" id="advBox"><div class="adv-in">
-          <div class="ctrl">
-            <label><span data-i18n="calc.churnL"></span><b id="cChurnV"></b></label>
-            <input type="range" min="1" max="10" step="0.5" value="4" class="rng" id="cChurn">
-          </div>
-          <div class="ctrl">
-            <label><span data-i18n="calc.cacL"></span><b id="cCacV"></b></label>
-            <input type="range" class="rng" id="cCac">
-          </div>
-        </div></div>
+    <p class="fin-inc reveal d2" data-i18n="calc.costInc"></p>
+    <p class="fin-note reveal d2" data-i18n="calc.costNote"></p>
+
+    <!-- region toggle -->
+    <div class="fin-region reveal">
+      <span class="fin-region-l" data-i18n="calc.regionL"></span>
+      <div class="calc-seg cur" id="finRegion"></div>
+    </div>
+
+    <!-- 2 · B2C -->
+    <h3 class="fin-h reveal"><span class="tagi" data-i18n="calc.b2cTag"></span><span data-i18n="calc.b2cT"></span></h3>
+    <p class="fin-sub reveal" data-i18n="calc.b2cLead"></p>
+    <div class="reveal" id="finB2C"></div>
+
+    <!-- 3 · B2B -->
+    <h3 class="fin-h reveal"><span class="tagi alt" data-i18n="calc.b2bTag"></span><span data-i18n="calc.b2bT"></span></h3>
+    <p class="fin-sub reveal" data-i18n="calc.b2bLead"></p>
+    <div class="plans reveal" id="finPlans"></div>
+
+    <!-- 4 · por aluno -->
+    <h3 class="fin-h reveal" data-i18n="calc.paT" style="font-size:clamp(1.5rem,3.6vw,2.3rem)"></h3>
+    <p class="fin-sub reveal" data-i18n="calc.paLead"></p>
+    <div class="peraluno reveal" id="finPer"></div>
+    <p class="fin-hi reveal" data-i18n="calc.paHi"></p>
+
+    <!-- 5 · por que B2B -->
+    <h3 class="fin-h reveal" data-i18n="calc.whyT"></h3>
+    <p class="fin-sub reveal" data-i18n="calc.whyLead"></p>
+    <div class="why reveal">
+      <div class="why-card">
+        <div class="why-tag">B2C</div>
+        <div class="why-dots" id="whyDots"></div>
+        <div class="why-b" data-i18n="calc.whyB2C"></div>
+        <div class="why-n" data-i18n="calc.whyB2Cn"></div>
       </div>
-      <div class="calc-out" id="calcOut">
-        <div class="og">
-          <div class="ogh" data-i18n="calc.rRev"></div>
-          <div class="calc-kpi"><span class="k" data-i18n="calc.mrr"></span><span class="v big" id="oMrr"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.arr"></span><span class="v" id="oArr"></span></div>
-        </div>
-        <div class="og">
-          <div class="ogh" data-i18n="calc.rCost"></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.varCost"></span><span class="v" id="oVar"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.fixed"></span><span class="v" id="oFix"></span></div>
-        </div>
-        <div class="og">
-          <div class="ogh" data-i18n="calc.rResult"></div>
-          <div class="calc-bar"><div class="pf" id="barPf"></div><div class="ct" id="barCt"></div></div>
-          <div class="calc-kpi"><span class="k" data-i18n="calc.opProfit"></span><span class="v big good" id="oProfit"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.opProfitY"></span><span class="v" id="oProfitY"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.opMargin"></span><span class="v" id="oOpMargin"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.contribPct"></span><span class="v" id="oContrib"></span></div>
-        </div>
-        <div class="og">
-          <div class="ogh" data-i18n="calc.rHealth"></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.breakeven"></span><span class="v" id="oBreak"></span></div>
-          <div class="calc-kpi sm"><span class="k" data-i18n="calc.per1k"></span><span class="v good" id="oPer1k"></span></div>
-          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.ltv"></span><span class="v" id="oLtv"></span></div>
-          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.ltvcac"></span><span class="v" id="oLtvCac"></span></div>
-          <div class="calc-kpi sm adv-row"><span class="k" data-i18n="calc.payback"></span><span class="v" id="oPayback"></span></div>
-        </div>
+      <div class="why-vs">vs</div>
+      <div class="why-card feat">
+        <div class="why-tag">B2B</div>
+        <div class="why-one">1</div>
+        <div class="why-b" data-i18n="calc.whyB2B"></div>
+        <div class="why-n" data-i18n="calc.whyB2Bn"></div>
       </div>
     </div>
-    <p class="calc-note reveal d3" data-i18n="calc.note"></p>
+    <p class="fin-hi reveal" data-i18n="calc.whyMsg"></p>
+
+    <!-- 6 · lucro por contrato -->
+    <h3 class="fin-h reveal" data-i18n="calc.profT"></h3>
+    <div class="profit reveal" id="finProfit"></div>
+    <p class="fin-note reveal" data-i18n="calc.occNote"></p>
+
+    <p class="calc-note reveal" data-i18n="calc.note"></p>
   </div>
 </section>
 
@@ -1092,92 +1120,60 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
   if(evoSec){var eObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){eObs.unobserve(evoSec);
     if(RM){setEvo(3);return;}bondTimers.push(setTimeout(function(){setEvo(1);},800));bondTimers.push(setTimeout(function(){setEvo(2);},1700));bondTimers.push(setTimeout(function(){setEvo(3);},2700));}});},{threshold:.45});eObs.observe(evoSec);}
 
-  /* ---------- calculator (due diligence) ---------- */
-  var CUR={
-    BRL:{sym:'R$',loc:'pt-BR',rate:1,prices:[14.90,19.90,24.90,29.90,34.90,39.90,49.90],
-      cost:{min:2,max:15,step:0.5},fixed:{min:20000,max:300000,step:5000},cac:{min:20,max:400,step:10,def:120},
-      scen:{cons:{p:1,u:2000,c:8,f:120000},real:{p:2,u:5000,c:6,f:90000},opt:{p:3,u:12000,c:4.5,f:70000}}},
-    EUR:{sym:'€',loc:'de-DE',rate:5.9,prices:[2.99,3.99,4.99,5.99,6.99,7.99,9.99],
-      cost:{min:0.4,max:2.8,step:0.1},fixed:{min:3500,max:52000,step:1000},cac:{min:4,max:75,step:2,def:20},
-      scen:{cons:{p:1,u:2000,c:1.40,f:20000},real:{p:2,u:5000,c:1.05,f:16000},opt:{p:3,u:12000,c:0.80,f:12000}}},
-    USD:{sym:'$',loc:'en-US',rate:5.4,prices:[2.99,3.99,4.99,5.99,6.99,7.99,9.99],
-      cost:{min:0.4,max:3,step:0.1},fixed:{min:4000,max:56000,step:1000},cac:{min:4,max:80,step:2,def:22},
-      scen:{cons:{p:1,u:2000,c:1.45,f:22000},real:{p:2,u:5000,c:1.10,f:18000},opt:{p:3,u:12000,c:0.85,f:13000}}}
+  /* ---------- financial section ---------- */
+  var FIN={
+    BR:{sym:'R$',loc:'pt-BR',cost:7,b2c:29.90,plan:{start:699,pro:1290,elite:2990}},
+    EU:{sym:'€',loc:'de-DE',cost:1.5,b2c:12.90,plan:{start:399,pro:799,elite:1990}},
+    US:{sym:'US$',loc:'en-US',cost:1.4,b2c:11.90,plan:{start:399,pro:799,elite:1990}}
   };
-  var COMP=[['cIA',50],['cSup',13],['cInfra',12],['cBuf',12],['cDb',6],['cStore',4],['cMon',3]];
-  var ccur='BRL',cscen='real',compOpen=false,advOpen=false;
-  var cPrice=document.getElementById('cPrice'),cUsers=document.getElementById('cUsers'),cCost=document.getElementById('cCost'),
-      cFixed=document.getElementById('cFixed'),cChurn=document.getElementById('cChurn'),cCac=document.getElementById('cCac'),
-      compBox=document.getElementById('compBox'),advBox=document.getElementById('advBox'),
-      compToggle=document.getElementById('compToggle'),advToggle=document.getElementById('advToggle'),
-      calcOut=document.getElementById('calcOut'),calcCur=document.getElementById('calcCur'),calcScen=document.getElementById('calcScen');
-  function ccfg(){return CUR[ccur];}
+  var PLAN_CAP={start:50,pro:100,elite:300},PLAN_ORDER=['start','pro','elite'];
+  var finRegion='BR';
+  var finRegionEl=document.getElementById('finRegion'),finB2C=document.getElementById('finB2C'),
+      finPlans=document.getElementById('finPlans'),finPer=document.getElementById('finPer'),
+      finProfit=document.getElementById('finProfit'),whyDots=document.getElementById('whyDots');
   function cset(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-  function money(v){var c=ccfg();return c.sym+' '+Math.round(v).toLocaleString(c.loc);}
-  function moneyD(v){var c=ccfg();return c.sym+' '+v.toLocaleString(c.loc,{minimumFractionDigits:2,maximumFractionDigits:2});}
-  function intf(v){return Math.round(v).toLocaleString(ccfg().loc);}
-  function dec1(v){return v.toLocaleString(ccfg().loc,{minimumFractionDigits:1,maximumFractionDigits:1});}
-  function clampSnap(v,r){v=Math.max(r.min,Math.min(r.max,v));return Math.round(v/r.step)*r.step;}
-  function setupCalcSliders(){if(!cPrice)return;var c=ccfg();
-    cPrice.min=0;cPrice.max=c.prices.length-1;cPrice.step=1;
-    cCost.min=c.cost.min;cCost.max=c.cost.max;cCost.step=c.cost.step;
-    cFixed.min=c.fixed.min;cFixed.max=c.fixed.max;cFixed.step=c.fixed.step;
-    cCac.min=c.cac.min;cCac.max=c.cac.max;cCac.step=c.cac.step;}
-  function applyScen(s){cscen=s;var c=ccfg(),sc=c.scen[s];
-    cPrice.value=sc.p;cUsers.value=sc.u;cCost.value=sc.c;cFixed.value=sc.f;cCac.value=c.cac.def;
-    updateCalc();renderCalcSeg();}
-  function setCurrency(cur){if(cur===ccur||!CUR[cur])return;
-    var o=CUR[ccur],n=CUR[cur];
-    var cost=parseFloat(cCost.value)*o.rate/n.rate,fixed=parseFloat(cFixed.value)*o.rate/n.rate,cac=parseFloat(cCac.value)*o.rate/n.rate;
-    ccur=cur;setupCalcSliders();
-    cCost.value=clampSnap(cost,n.cost);cFixed.value=clampSnap(fixed,n.fixed);cCac.value=clampSnap(cac,n.cac);
-    updateCalc();renderCalcSeg();}
-  function renderCalcSeg(){
-    if(calcCur)calcCur.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-cur')===ccur);});
-    if(calcScen)calcScen.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-scen')===cscen);});}
-  function renderComp(cost){if(!compBox)return;var html='<div class="comp-in">';
-    COMP.forEach(function(it){var v=it[1]/100*cost;
-      html+='<div class="comp-item"><div><div class="ci">'+(T['calc.'+it[0]]||'')+'</div><div class="cd">'+(T['calc.'+it[0]+'d']||'')+'</div></div><div class="cp">'+it[1]+'%</div><div class="cv">'+moneyD(v)+'</div></div>';});
-    html+='<div class="comp-tot"><span>'+(T['calc.compTotal']||'')+'</span><span class="v">'+moneyD(cost)+'</span></div></div>';compBox.innerHTML=html;}
-  function updateCalc(){if(!cPrice)return;var c=ccfg();
-    var price=c.prices[Math.round(+cPrice.value)]||c.prices[0];
-    var users=+cUsers.value,cost=+cCost.value,fixed=+cFixed.value,churn=+cChurn.value,cac=+cCac.value;
-    var mrr=price*users,arr=mrr*12,varM=cost*users,varY=varM*12;
-    var contribU=price-cost,contribPct=price>0?contribU/price*100:0;
-    var opM=contribU*users-fixed,opY=opM*12,opMargin=mrr>0?opM/mrr*100:0;
-    var be=contribU>0?Math.ceil(fixed/contribU):Infinity,per1k=contribU*1000;
-    var life=churn>0?1/(churn/100):0,ltv=contribU*life,ltvcac=cac>0?ltv/cac:0,payback=contribU>0?cac/contribU:Infinity;
-    cset('cPriceV',moneyD(price));cset('cUsersV',intf(users));cset('cCostV',moneyD(cost));
-    cset('cFixedV',money(fixed));cset('cChurnV',dec1(churn)+'%');cset('cCacV',moneyD(cac));
-    cset('oMrr',money(mrr));cset('oArr',money(arr));cset('oVar',money(varM));cset('oFix',money(fixed));
-    cset('oProfit',money(opM));cset('oProfitY',money(opY));
-    cset('oOpMargin',Math.round(opMargin)+'%');cset('oContrib',Math.round(contribPct)+'%');
-    cset('oBreak',isFinite(be)?intf(be):'—');cset('oPer1k',money(per1k));
-    cset('oLtv',money(ltv));cset('oLtvCac',isFinite(ltvcac)&&ltvcac>0?dec1(ltvcac)+' : 1':'—');
-    cset('oPayback',isFinite(payback)?dec1(payback)+' '+(T['calc.months']||''):'—');
-    var op=document.getElementById('oProfit');if(op){op.classList.toggle('bad',opM<0);op.classList.toggle('good',opM>=0);}
-    var opy=document.getElementById('oProfitY');if(opy){opy.classList.toggle('bad',opM<0);}
-    var per=document.getElementById('oPer1k');if(per){per.classList.toggle('bad',per1k<0);per.classList.toggle('good',per1k>=0);}
-    var totalCost=varM+fixed,pfW=mrr>0&&opM>0?Math.min(100,opM/mrr*100):0,ctW=mrr>0?Math.min(100,totalCost/mrr*100):0;
-    var bp=document.getElementById('barPf'),bc=document.getElementById('barCt');if(bp)bp.style.width=pfW+'%';if(bc)bc.style.width=ctW+'%';
-    renderComp(cost);if(compOpen&&compBox)compBox.style.maxHeight=compBox.scrollHeight+'px';}
-  function calcChrome(){
-    if(calcScen)calcScen.querySelectorAll('button').forEach(function(b){var k=b.getAttribute('data-scen');b.textContent=T['calc.'+(k==='cons'?'sCons':k==='real'?'sReal':'sOpt')]||'';});
-    if(compToggle)compToggle.textContent=compOpen?(T['calc.compHide']||''):(T['calc.compToggle']||'');
-    if(advToggle)advToggle.textContent=advOpen?(T['calc.advHide']||''):(T['calc.advToggle']||'');}
-  function calcRefresh(){calcChrome();updateCalc();renderCalcSeg();
-    if(compOpen&&compBox)compBox.style.maxHeight=compBox.scrollHeight+'px';
-    if(advOpen&&advBox)advBox.style.maxHeight=advBox.scrollHeight+'px';}
-  function initCalc(){if(!cPrice)return;
-    calcCur.innerHTML=['BRL','EUR','USD'].map(function(x){return '<button data-cur="'+x+'">'+x+'</button>';}).join('');
-    calcScen.innerHTML=['cons','real','opt'].map(function(x){return '<button data-scen="'+x+'"></button>';}).join('');
-    calcCur.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setCurrency(b.getAttribute('data-cur'));});});
-    calcScen.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){applyScen(b.getAttribute('data-scen'));});});
-    setupCalcSliders();applyScen('real');
-    [cPrice,cUsers,cCost,cFixed,cChurn,cCac].forEach(function(el){if(el)el.addEventListener('input',function(){updateCalc();});});
-    compToggle.addEventListener('click',function(){compOpen=!compOpen;compBox.style.maxHeight=compOpen?compBox.scrollHeight+'px':'0';compToggle.textContent=compOpen?(T['calc.compHide']||''):(T['calc.compToggle']||'');});
-    advToggle.addEventListener('click',function(){advOpen=!advOpen;advBox.style.maxHeight=advOpen?advBox.scrollHeight+'px':'0';calcOut.classList.toggle('adv-on',advOpen);advToggle.textContent=advOpen?(T['calc.advHide']||''):(T['calc.advToggle']||'');});}
-  initCalc();
+  function finMoney(r,v,dec){var c=FIN[r];return c.sym+' '+v.toLocaleString(c.loc,{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0});}
+  function planName(p){return T['calc.plan'+p.charAt(0).toUpperCase()+p.slice(1)]||p;}
+  function renderFin(){
+    if(!finB2C)return;var c=FIN[finRegion];
+    var price=c.b2c,cost=c.cost,profit=price-cost,margin=Math.floor(profit/price*100);
+    finB2C.innerHTML='<div class="flow">'
+      +'<div class="flow-step pay"><span>'+(T['calc.flowPay']||'')+'</span><b>'+finMoney(finRegion,price,2)+'</b></div>'
+      +'<div class="flow-op">−</div>'
+      +'<div class="flow-step cost"><span>'+(T['calc.flowCost']||'')+'</span><b>'+finMoney(finRegion,cost,2)+'</b></div>'
+      +'<div class="flow-op">=</div>'
+      +'<div class="flow-step profit"><span>'+(T['calc.flowProfit']||'')+'</span><b>'+finMoney(finRegion,profit,2)+'</b></div>'
+      +'<div class="flow-margin"><span>'+(T['calc.lMargin']||'')+'</span><b>'+margin+'%</b></div></div>';
+    finPlans.innerHTML=PLAN_ORDER.map(function(p){var feat=p==='elite'?' feat':'';
+      return '<div class="plan'+feat+'"><div class="plan-n">'+planName(p)+'</div>'
+        +'<div class="plan-cap">'+(T['calc.upTo']||'')+' '+PLAN_CAP[p]+' '+(T['calc.students']||'')+'</div>'
+        +'<div class="plan-price">'+finMoney(finRegion,c.plan[p],0)+'<span>'+(T['calc.perMo']||'')+'</span></div></div>';}).join('');
+    var pers=PLAN_ORDER.map(function(p){return c.plan[p]/PLAN_CAP[p];}),maxPer=Math.max.apply(null,pers);
+    finPer.innerHTML=PLAN_ORDER.map(function(p,i){var per=pers[i],h=Math.round(per/maxPer*100);
+      return '<div class="pa-item"><div class="pa-bar"><i style="height:'+h+'%"></i></div>'
+        +'<div class="pa-v">'+finMoney(finRegion,per,2)+'</div>'
+        +'<div class="pa-d">'+finMoney(finRegion,c.plan[p],0)+' ÷ '+PLAN_CAP[p]+'</div>'
+        +'<div class="pa-l">'+planName(p)+'</div></div>';}).join('');
+    finProfit.innerHTML=PLAN_ORDER.map(function(p){var feat=p==='elite'?' feat':'';
+      var rev=c.plan[p],mc=PLAN_CAP[p]*c.cost,lu=rev-mc,bw=Math.max(0,Math.min(100,lu/rev*100));
+      return '<div class="pc-card'+feat+'"><div class="pc-n">'+planName(p)+'</div>'
+        +'<div class="pc-row"><span>'+(T['calc.rev']||'')+'</span><b>'+finMoney(finRegion,rev,0)+'</b></div>'
+        +'<div class="pc-row"><span>'+(T['calc.maxCost']||'')+'</span><b class="neg">'+finMoney(finRegion,mc,0)+'</b></div>'
+        +'<div class="pc-bar"><i style="width:'+bw+'%"></i></div>'
+        +'<div class="pc-row big"><span>'+(T['calc.estProfit']||'')+'</span><b>'+finMoney(finRegion,lu,0)+'</b></div></div>';}).join('');
+    if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-r')===finRegion);});
+  }
+  function calcRefresh(){
+    if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){var r=b.getAttribute('data-r');b.textContent=T['calc.r'+r]||r;});
+    renderFin();
+  }
+  function initFin(){if(!finRegionEl)return;
+    finRegionEl.innerHTML=['BR','EU','US'].map(function(r){return '<button data-r="'+r+'"></button>';}).join('');
+    finRegionEl.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){finRegion=b.getAttribute('data-r');renderFin();});});
+    if(whyDots){var d='';for(var i=0;i<100;i++)d+='<i></i>';whyDots.innerHTML=d;}
+    renderFin();
+  }
+  initFin();
 
   /* ---------- interactive admin panel ---------- */
   var ADM_STUDENTS=[
