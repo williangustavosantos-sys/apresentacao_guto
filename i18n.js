@@ -232,6 +232,7 @@ const I18N = {
     "calc.rev": "Receita",
     "calc.maxCost": "Custo máximo",
     "calc.estProfit": "Lucro estimado",
+    "calc.stratNote": "O Brasil não segue conversão direta. É mercado de entrada, validação e aquisição — a margem é menor de propósito. O lucro forte está na Europa e nos Estados Unidos, onde o valor percebido por aluno é muito maior.",
     "calc.occNote": "Custos calculados com ocupação máxima do plano (50 / 100 / 300 alunos). É conservador: a maioria dos clientes não ocupa 100% da capacidade — então a margem real tende a ser maior.",
     "calc.note": "Custos a partir da auditoria técnica do GUTO; os preços são os planos definidos. Nenhuma projeção de receita futura é apresentada.",
 
@@ -548,6 +549,7 @@ const I18N = {
     "calc.rev": "Revenue",
     "calc.maxCost": "Max cost",
     "calc.estProfit": "Estimated profit",
+    "calc.stratNote": "Brazil isn't a direct conversion. It's an entry, validation and acquisition market — the margin is lower on purpose. The strong profit is in Europe and the United States, where the perceived value per student is much higher.",
     "calc.occNote": "Costs assume the plan is at full capacity (50 / 100 / 300 students). That's conservative: most customers won't use 100% of capacity — so the real margin tends to be higher.",
     "calc.note": "Costs from GUTO's technical audit; prices are the defined plans. No future revenue projection is shown.",
 
@@ -863,6 +865,7 @@ const I18N = {
     "calc.rev": "Ricavo",
     "calc.maxCost": "Costo massimo",
     "calc.estProfit": "Profitto stimato",
+    "calc.stratNote": "Il Brasile non segue una conversione diretta. È un mercato di ingresso, validazione e acquisizione — il margine è più basso di proposito. Il profitto forte è in Europa e negli Stati Uniti, dove il valore percepito per allievo è molto più alto.",
     "calc.occNote": "I costi assumono il piano a piena capacità (50 / 100 / 300 allievi). È conservativo: la maggior parte dei clienti non userà il 100% — quindi il margine reale tende a essere più alto.",
     "calc.note": "Costi dall'audit tecnico di GUTO; i prezzi sono i piani definiti. Nessuna proiezione di ricavi futuri è mostrata.",
 

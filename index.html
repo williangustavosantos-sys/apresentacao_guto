@@ -382,6 +382,8 @@ input[type=range].rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%
 .pc-row b.neg{color:#b45309}
 .pc-row.big{margin-top:4px;font-size:1rem}
 .pc-row.big b{font-size:1.3rem;color:var(--hl)}
+.pc-row b.loss,.pc-row.big b.loss{color:var(--bad)}
+.fin-strat{margin-top:24px;padding:18px 22px;border-left:3px solid var(--cyan-2);background:rgba(82,231,255,.07);border-radius:0 12px 12px 0;font-size:.98rem;color:var(--ink-2);max-width:76ch}
 .pc-bar{height:10px;border-radius:99px;background:var(--surface-deep);overflow:hidden;margin:10px 0}
 .pc-bar i{display:block;height:100%;background:var(--cta);border-radius:99px;box-shadow:0 0 12px rgba(82,231,255,.4);transition:width .5s var(--e)}
 .calc-note{font-size:.8rem;color:var(--ink-3);font-style:italic;margin-top:28px;text-align:center;max-width:84ch;margin-left:auto;margin-right:auto}
@@ -850,6 +852,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
     <!-- 6 · lucro por contrato -->
     <h3 class="fin-h reveal" data-i18n="calc.profT"></h3>
     <div class="profit reveal" id="finProfit"></div>
+    <p class="fin-strat reveal" data-i18n="calc.stratNote"></p>
     <p class="fin-note reveal" data-i18n="calc.occNote"></p>
 
     <p class="calc-note reveal" data-i18n="calc.note"></p>
@@ -1122,9 +1125,9 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
 
   /* ---------- financial section ---------- */
   var FIN={
-    BR:{sym:'R$',loc:'pt-BR',cost:7,b2c:29.90,plan:{start:699,pro:1290,elite:2990}},
-    EU:{sym:'€',loc:'de-DE',cost:1.5,b2c:12.90,plan:{start:399,pro:799,elite:1990}},
-    US:{sym:'US$',loc:'en-US',cost:1.4,b2c:11.90,plan:{start:399,pro:799,elite:1990}}
+    BR:{sym:'R$',loc:'pt-BR',cost:7,b2c:29.90,plan:{start:499,pro:899,elite:1990}},
+    EU:{sym:'€',loc:'de-DE',cost:1.5,b2c:12.90,plan:{start:495,pro:890,elite:2070}},
+    US:{sym:'US$',loc:'en-US',cost:1.4,b2c:11.90,plan:{start:495,pro:890,elite:2070}}
   };
   var PLAN_CAP={start:50,pro:100,elite:300},PLAN_ORDER=['start','pro','elite'];
   var finRegion='BR';
@@ -1132,7 +1135,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
       finPlans=document.getElementById('finPlans'),finPer=document.getElementById('finPer'),
       finProfit=document.getElementById('finProfit'),whyDots=document.getElementById('whyDots');
   function cset(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-  function finMoney(r,v,dec){var c=FIN[r];return c.sym+' '+v.toLocaleString(c.loc,{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0});}
+  function finMoney(r,v,dec){var c=FIN[r];var neg=v<0,a=Math.abs(v);return (neg?'-':'')+c.sym+' '+a.toLocaleString(c.loc,{minimumFractionDigits:dec||0,maximumFractionDigits:dec||0});}
   function planName(p){return T['calc.plan'+p.charAt(0).toUpperCase()+p.slice(1)]||p;}
   function renderFin(){
     if(!finB2C)return;var c=FIN[finRegion];
@@ -1155,12 +1158,13 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
         +'<div class="pa-d">'+finMoney(finRegion,c.plan[p],0)+' ÷ '+PLAN_CAP[p]+'</div>'
         +'<div class="pa-l">'+planName(p)+'</div></div>';}).join('');
     finProfit.innerHTML=PLAN_ORDER.map(function(p){var feat=p==='elite'?' feat':'';
-      var rev=c.plan[p],mc=PLAN_CAP[p]*c.cost,lu=rev-mc,bw=Math.max(0,Math.min(100,lu/rev*100));
+      var rev=c.plan[p],mc=PLAN_CAP[p]*c.cost,lu=rev-mc,mg=rev>0?Math.round(lu/rev*100):0,bw=Math.max(0,Math.min(100,lu/rev*100)),lo=lu<0?' loss':'';
       return '<div class="pc-card'+feat+'"><div class="pc-n">'+planName(p)+'</div>'
         +'<div class="pc-row"><span>'+(T['calc.rev']||'')+'</span><b>'+finMoney(finRegion,rev,0)+'</b></div>'
         +'<div class="pc-row"><span>'+(T['calc.maxCost']||'')+'</span><b class="neg">'+finMoney(finRegion,mc,0)+'</b></div>'
         +'<div class="pc-bar"><i style="width:'+bw+'%"></i></div>'
-        +'<div class="pc-row big"><span>'+(T['calc.estProfit']||'')+'</span><b>'+finMoney(finRegion,lu,0)+'</b></div></div>';}).join('');
+        +'<div class="pc-row big"><span>'+(T['calc.estProfit']||'')+'</span><b class="'+(lu<0?'loss':'')+'">'+finMoney(finRegion,lu,0)+'</b></div>'
+        +'<div class="pc-row"><span>'+(T['calc.lMargin']||'')+'</span><b class="'+(mg<0?'loss':'')+'">'+mg+'%</b></div></div>';}).join('');
     if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-r')===finRegion);});
   }
   function calcRefresh(){
