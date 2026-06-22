@@ -1263,7 +1263,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
   var qaList=document.getElementById('qaList');
   function buildQA(){
     if(!qaList)return;qaList.innerHTML='';
-    for(var i=1;i<=12;i++){(function(n){
+    for(var i=1;i<=16;i++){(function(n){
       var it=document.createElement('div');it.className='qa-item';
       it.innerHTML='<div class="qa-q"><span>'+(T['qa.q'+n]||'')+'</span><span class="qx">+</span></div><div class="qa-a"><p>'+(T['qa.a'+n]||'')+'</p></div>';
       var q=it.querySelector('.qa-q'),a=it.querySelector('.qa-a');
