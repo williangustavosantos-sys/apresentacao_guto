@@ -347,14 +347,21 @@ input[type=range].rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%
 .flow-margin{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 22px;font-weight:800;color:var(--hl);background:rgba(82,231,255,.1);border:1px solid rgba(82,231,255,.3);border-radius:var(--r-lg);min-width:120px}
 .flow-margin span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
 .flow-margin b{font-size:1.7rem}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s var(--e),box-shadow .3s}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);transition:transform .3s var(--e),box-shadow .3s;display:flex;flex-direction:column}
 .plan:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .plan.feat{border-color:rgba(82,231,255,.55);background:linear-gradient(170deg,rgba(82,231,255,.06),#fff)}
 .plan-n{font-size:1.15rem;font-weight:800;color:var(--navy);letter-spacing:.02em}
 .plan-cap{font-size:.9rem;color:var(--ink-3);margin:3px 0 16px}
-.plan-price{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.plan-price{font-size:clamp(1.6rem,3.4vw,2.1rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
 .plan-price span{font-size:.84rem;font-weight:600;color:var(--ink-3)}
+.plan.custom{background:linear-gradient(165deg,#0d2341,#0a1c38);border-color:transparent;color:#fff}
+.plan.custom .plan-n{color:#fff}
+.plan.custom .plan-cap{color:var(--cyan-3)}
+.plan-price.sob{font-size:clamp(1.2rem,2.6vw,1.5rem);color:#fff}
+.plan-cdesc{font-size:.82rem;color:#cfe6ff;line-height:1.5;margin:12px 0 16px;flex:1}
+.plan-cta{display:inline-block;align-self:flex-start;font-size:.84rem;font-weight:700;color:#08303b;background:var(--cta);padding:9px 16px;border-radius:99px;box-shadow:0 6px 14px rgba(82,231,255,.3);transition:transform .25s var(--e)}
+.plan-cta:hover{transform:translateY(-2px)}
 .peraluno{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:end}
 .pa-item{display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm)}
 .pa-bar{width:100%;height:120px;display:flex;align-items:flex-end;justify-content:center}
@@ -486,7 +493,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
 @media(max-width:880px){
   .split,.fix-row,.ask-head{grid-template-columns:1fr;display:flex;flex-direction:column}
   .ask-head{align-items:flex-start}.round{text-align:left}
-  .stats3,.market3,.moat-grid,.road3,.b2bgrid,.tiers,.plans,.peraluno,.profit{grid-template-columns:1fr}
+  .stats3,.market3,.moat-grid,.road3,.b2bgrid,.tiers,.peraluno,.profit{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}.why-vs{transform:rotate(90deg)}
   .flow-op{justify-content:center;transform:rotate(90deg)}
   .flow-margin{min-width:0}
@@ -822,6 +829,7 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
     <h3 class="fin-h reveal"><span class="tagi alt" data-i18n="calc.b2bTag"></span><span data-i18n="calc.b2bT"></span></h3>
     <p class="fin-sub reveal" data-i18n="calc.b2bLead"></p>
     <div class="plans reveal" id="finPlans"></div>
+    <p class="fin-note reveal" data-i18n="calc.b2bScaleNote"></p>
 
     <!-- 4 · por aluno -->
     <h3 class="fin-h reveal" data-i18n="calc.paT" style="font-size:clamp(1.5rem,3.6vw,2.3rem)"></h3>
@@ -1125,11 +1133,11 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
 
   /* ---------- financial section ---------- */
   var FIN={
-    BR:{sym:'R$',loc:'pt-BR',cost:7,b2c:29.90,plan:{start:499,pro:899,elite:1990}},
-    EU:{sym:'€',loc:'de-DE',cost:1.5,b2c:12.90,plan:{start:495,pro:890,elite:2070}},
-    US:{sym:'US$',loc:'en-US',cost:1.4,b2c:11.90,plan:{start:495,pro:890,elite:2070}}
+    BR:{sym:'R$',loc:'pt-BR',cost:7,b2c:29.90,plan:{start:545,pro:1485,elite:4450}},
+    EU:{sym:'€',loc:'de-DE',cost:1.5,b2c:12.90,plan:{start:595,pro:1635,elite:4950}},
+    US:{sym:'US$',loc:'en-US',cost:1.4,b2c:11.90,plan:{start:495,pro:1335,elite:3950}}
   };
-  var PLAN_CAP={start:50,pro:100,elite:300},PLAN_ORDER=['start','pro','elite'];
+  var PLAN_CAP={start:50,pro:150,elite:500},PLAN_ORDER=['start','pro','elite'];
   var finRegion='BR';
   var finRegionEl=document.getElementById('finRegion'),finB2C=document.getElementById('finB2C'),
       finPlans=document.getElementById('finPlans'),finPer=document.getElementById('finPer'),
@@ -1150,7 +1158,12 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
     finPlans.innerHTML=PLAN_ORDER.map(function(p){var feat=p==='elite'?' feat':'';
       return '<div class="plan'+feat+'"><div class="plan-n">'+planName(p)+'</div>'
         +'<div class="plan-cap">'+(T['calc.upTo']||'')+' '+PLAN_CAP[p]+' '+(T['calc.students']||'')+'</div>'
-        +'<div class="plan-price">'+finMoney(finRegion,c.plan[p],0)+'<span>'+(T['calc.perMo']||'')+'</span></div></div>';}).join('');
+        +'<div class="plan-price">'+finMoney(finRegion,c.plan[p],0)+'<span>'+(T['calc.perMo']||'')+'</span></div></div>';}).join('')
+      +'<div class="plan custom"><div class="plan-n">'+(T['calc.planCustom']||'Custom')+'</div>'
+        +'<div class="plan-cap">'+(T['calc.customCap']||'')+'</div>'
+        +'<div class="plan-price sob">'+(T['calc.customPrice']||'')+'</div>'
+        +'<div class="plan-cdesc">'+(T['calc.customDesc']||'')+'</div>'
+        +'<a class="plan-cta" href="https://wa.me/393428369444" target="_blank" rel="noopener">'+(T['calc.customCta']||'')+'</a></div>';
     var pers=PLAN_ORDER.map(function(p){return c.plan[p]/PLAN_CAP[p];}),maxPer=Math.max.apply(null,pers);
     finPer.innerHTML=PLAN_ORDER.map(function(p,i){var per=pers[i],h=Math.round(per/maxPer*100);
       return '<div class="pa-item"><div class="pa-bar"><i style="height:'+h+'%"></i></div>'
@@ -1158,13 +1171,14 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
         +'<div class="pa-d">'+finMoney(finRegion,c.plan[p],0)+' ÷ '+PLAN_CAP[p]+'</div>'
         +'<div class="pa-l">'+planName(p)+'</div></div>';}).join('');
     finProfit.innerHTML=PLAN_ORDER.map(function(p){var feat=p==='elite'?' feat':'';
-      var rev=c.plan[p],mc=PLAN_CAP[p]*c.cost,lu=rev-mc,mg=rev>0?Math.round(lu/rev*100):0,bw=Math.max(0,Math.min(100,lu/rev*100)),lo=lu<0?' loss':'';
+      var rev=c.plan[p],mc=PLAN_CAP[p]*c.cost,lu=rev-mc,mg=rev>0?(lu/rev*100):0,bw=Math.max(0,Math.min(100,lu/rev*100));
+      var mgTxt=mg.toLocaleString(c.loc,{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
       return '<div class="pc-card'+feat+'"><div class="pc-n">'+planName(p)+'</div>'
         +'<div class="pc-row"><span>'+(T['calc.rev']||'')+'</span><b>'+finMoney(finRegion,rev,0)+'</b></div>'
         +'<div class="pc-row"><span>'+(T['calc.maxCost']||'')+'</span><b class="neg">'+finMoney(finRegion,mc,0)+'</b></div>'
         +'<div class="pc-bar"><i style="width:'+bw+'%"></i></div>'
         +'<div class="pc-row big"><span>'+(T['calc.estProfit']||'')+'</span><b class="'+(lu<0?'loss':'')+'">'+finMoney(finRegion,lu,0)+'</b></div>'
-        +'<div class="pc-row"><span>'+(T['calc.lMargin']||'')+'</span><b class="'+(mg<0?'loss':'')+'">'+mg+'%</b></div></div>';}).join('');
+        +'<div class="pc-row"><span>'+(T['calc.lMargin']||'')+'</span><b class="'+(mg<0?'loss':'')+'">'+mgTxt+'</b></div></div>';}).join('');
     if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-r')===finRegion);});
   }
   function calcRefresh(){
