@@ -332,6 +332,21 @@ input[type=range].rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%
 .tier .tl{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 .tier .tv{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-top:8px}
 .tier .tv span{font-size:.84rem;font-weight:600;color:var(--ink-3);margin-left:2px}
+.costbreak{margin-top:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;max-width:680px}
+.costbreak.open{border-color:rgba(82,231,255,.5);box-shadow:var(--shadow-sm)}
+.cb-q{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:16px 20px;cursor:pointer;font-weight:700;color:var(--navy);font-size:1rem;background:transparent;border:0;font-family:inherit;text-align:left}
+.cb-q .qx{flex:0 0 24px;width:24px;height:24px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--hl);transition:transform .3s,background .3s,color .3s,border-color .3s;font-size:1.2rem}
+.costbreak.open .qx{background:var(--cta);color:#08303b;border-color:transparent;transform:rotate(45deg)}
+.cb-a{max-height:0;overflow:hidden;transition:max-height .45s var(--e)}
+.cb-in{padding:2px 20px 20px}
+.cb-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--ink-2)}
+.cb-row b{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.cb-tot{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0 2px;margin-top:4px;border-top:2px solid var(--line-2);font-weight:800;color:var(--navy);font-size:1.02rem}
+.cb-tot b{font-variant-numeric:tabular-nums}
+.cb-note{font-size:.84rem;color:var(--ink-3);font-style:italic;margin:16px 0}
+.cb-assum-t{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--hl);margin-bottom:8px}
+.cb-assum ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.cb-assum li{font-size:.82rem;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:99px;padding:6px 12px}
 .fin-region{display:flex;align-items:center;gap:14px;margin-top:48px;flex-wrap:wrap}
 .fin-region-l{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 .flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:12px}
@@ -813,6 +828,10 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
     </div>
     <p class="fin-inc reveal d2" data-i18n="calc.costInc"></p>
     <p class="fin-note reveal d2" data-i18n="calc.costNote"></p>
+    <div class="costbreak reveal d2" id="costBreak">
+      <button class="cb-q" id="cbToggle" type="button"><span data-i18n="calc.costBreakT"></span><span class="qx">+</span></button>
+      <div class="cb-a" id="cbBody"></div>
+    </div>
 
     <!-- region toggle -->
     <div class="fin-region reveal">
@@ -1180,7 +1199,23 @@ footer{background:var(--d-bg);color:var(--d-ink-3);padding:30px 24px 60px;border
         +'<div class="pc-row big"><span>'+(T['calc.estProfit']||'')+'</span><b class="'+(lu<0?'loss':'')+'">'+finMoney(finRegion,lu,0)+'</b></div>'
         +'<div class="pc-row"><span>'+(T['calc.lMargin']||'')+'</span><b class="'+(mg<0?'loss':'')+'">'+mgTxt+'</b></div></div>';}).join('');
     if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-r')===finRegion);});
+    renderCostBreak();
   }
+  var COSTCOMP=[['ccIA',0.18],['ccVoice',0.30],['ccInfra',0.12],['ccDb',0.06],['ccStore',0.04],['ccMon',0.03],['ccFee',0.10],['ccFiscal',0.07]];
+  var cbOpen=false,cbBodyEl=document.getElementById('cbBody'),cbToggleEl=document.getElementById('cbToggle'),costBreakEl=document.getElementById('costBreak');
+  function renderCostBreak(){
+    if(!cbBodyEl)return;var c=FIN[finRegion],total=c.cost,sum=0,rows='';
+    COSTCOMP.forEach(function(it){var v=Math.round(total*it[1]*100)/100;sum+=v;
+      rows+='<div class="cb-row"><span>'+(T['calc.'+it[0]]||'')+'</span><b>'+finMoney(finRegion,v,2)+'</b></div>';});
+    var margin=Math.round((total-sum)*100)/100;
+    rows+='<div class="cb-row"><span>'+(T['calc.ccMargin']||'')+'</span><b>'+finMoney(finRegion,margin,2)+'</b></div>';
+    rows+='<div class="cb-tot"><span>'+(T['calc.ccTotal']||'')+'</span><b>'+finMoney(finRegion,total,2)+'</b></div>';
+    var assum='<div class="cb-assum"><div class="cb-assum-t">'+(T['calc.ccAssumT']||'')+'</div><ul>'
+      +['ccA1','ccA2','ccA3','ccA4','ccA5'].map(function(k){return '<li>'+(T['calc.'+k]||'')+'</li>';}).join('')+'</ul></div>';
+    cbBodyEl.innerHTML='<div class="cb-in"><div class="cb-table">'+rows+'</div><p class="cb-note">'+(T['calc.ccNote']||'')+'</p>'+assum+'</div>';
+    if(cbOpen)cbBodyEl.style.maxHeight=cbBodyEl.scrollHeight+'px';
+  }
+  if(cbToggleEl)cbToggleEl.addEventListener('click',function(){cbOpen=!cbOpen;costBreakEl.classList.toggle('open',cbOpen);cbBodyEl.style.maxHeight=cbOpen?cbBodyEl.scrollHeight+'px':'0';});
   function calcRefresh(){
     if(finRegionEl)finRegionEl.querySelectorAll('button').forEach(function(b){var r=b.getAttribute('data-r');b.textContent=T['calc.r'+r]||r;});
     renderFin();
